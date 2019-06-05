@@ -2,7 +2,7 @@
 
 **Scroll down for english description, please**
 
-shMapper - это плагин для WordPress. shMapper позволяет создавать простые краудсорсинговые карты на OpenStreet Maps с опцией формы обратной связи. Этот плагин предоставляет вам альтернативу текущим картографическим сервисам, таким как Яндекс.Карты, Карты Google и т.д., которые не предоставляют пользователям возможность добавлять новые объекты.
+shMapper - это плагин для WordPress. shMapper позволяет создавать простые краудсорсинговые карты на OpenStreetMap с опцией формы обратной связи. Этот плагин предоставляет вам альтернативу текущим картографическим сервисам, таким как Яндекс.Карты, Карты Google и т.д., которые не предоставляют пользователям возможность добавлять новые объекты.
 
 Плагин разработан и поддерживается [Теплицей социальных технологий](//te-st.ru/).
 
@@ -41,7 +41,7 @@ shMapper - это плагин для WordPress. shMapper позволяет с�
 
 ## In English ##
 
-shMapper is a WordPress plugin. The shMapper allows you to create simple crowdsourcing maps on OpenStreet Maps with an option of feedback messages form. This plugin gives you an alternative to current online map services such as Yandex.Maps, Google Maps etc which don’t provide the option for users to add new objects.
+shMapper is a WordPress plugin. The shMapper allows you to create simple crowdsourcing maps on OpenStreetMap with an option of feedback messages form. This plugin gives you an alternative to current online map services such as Yandex.Maps, Google Maps etc which don’t provide the option for users to add new objects.
 
 This plugin developed and supported by [Teplitsa of social technologies](//te-st.ru/).
 
