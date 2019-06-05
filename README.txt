@@ -2,7 +2,7 @@
 Contributors: Genagl, denis.cherniatev
 Author URI: http://te-st.ru
 Plugin URI: http://genagl.ru/?p=652
-Tags: map, Open Street Maps, OSM, yandex.map, crowdsourcing, карта, yandex.карты
+Tags: map, OpenStreetMap, OSM, yandex.map, crowdsourcing, карта, yandex.карты
 Requires at least: 3.6.1
 Tested up to: 5.2
 Requires PHP: 5.6
@@ -10,11 +10,11 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-shMapper is a plugin, that allows you to create simple crowdsourcing maps based on Open Street Maps and Yandex.Maps.
+shMapper is a plugin, that allows you to create simple crowdsourcing maps based on OpenStreetMap and Yandex.Maps.
 
 == Description ==
 
-The shMapper plugin allows you to create simple crowdsourcing maps on OpenStreet Maps with an option of feedback messages form. This plugin gives you an alternative to current online map services such as Yandex.Maps, Google Maps etc which don’t provide the option for users to add new objects.
+The shMapper plugin allows you to create simple crowdsourcing maps on OpenStreetMap with an option of feedback messages form. This plugin gives you an alternative to current online map services such as Yandex.Maps, Google Maps etc which don’t provide the option for users to add new objects.
 
 **Core features**
 
