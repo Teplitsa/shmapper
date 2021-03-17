@@ -384,13 +384,13 @@ class ShmMap extends SMC_Post
 					</div>
 					<div class='shm-12'>
 						<div class='shm-admin-block'>
-							<input type='text' name='overlay_color' value='" . esc_attr( $overlay_color ) . "'>
+							<input type='color' name='overlay_color' value='" . esc_attr( $overlay_color ) . "'>
 							<p class='description'>".
 								__("Choose map overlay color", SHMAPPER) . 
 							"</p>
 						</div>
 						<div class='shm-admin-block'>
-							<input type='text' name='border_color' value='" . esc_attr( $border_color ) . "'>
+							<input type='color' name='border_color' value='" . esc_attr( $border_color ) . "'>
 							<p class='description'>".
 								__("Choose country border color", SHMAPPER) . 
 							"</p>

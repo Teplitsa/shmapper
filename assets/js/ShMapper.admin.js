@@ -155,11 +155,13 @@ jQuery(document).ready(function($)
 			}, 1200);
 		}
 	});
-
-	$('[name="overlay_color"], [name="border_color"]').wpColorPicker({
-		'defaultColor': '#d1d1d1'
-	});
-
+	
+	if( $('[name="overlay_color"], [name="border_color"]').length > 0 )
+	{
+		$('[name="overlay_color"], [name="border_color"]').wpColorPicker({
+			'defaultColor': '#d1d1d1'
+		});
+	}
 	$('.shm-range').on('input', function(){
 		$(this).attr('value', this.value);
 	});

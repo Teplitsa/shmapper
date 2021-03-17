@@ -45,7 +45,7 @@ jQuery(document).ready(function($)
 		evt.preventDefault();
 		shm_send( ['shm_doubled', $(evt.currentTarget).attr("post_id")] );
 	} );
-	$( '[name="shm_wclose"]' ).on( 'click', function(evt) {
+	$( '[name="shm_wclose"]' ).on( 'click', function(evt) { 
 		shm_send( ['shm_wclose'] );
 	});
 	$( '#shm_settings_wizzard' ).on( 'click', function(evt) {
@@ -364,12 +364,13 @@ jQuery(document).ready(function($)
 	//
 	shm_add_modal = function (data)
 	{
+		// console.log(data);
 		if(typeof data == "string")
 		{
 			data={content: data};
 		}
 		if(!data.title) data.title = __("Attantion");
-		$("html").append("<div class='shm_modal_container'></div>");
+		$("html").append("<div class='shm_modal_container " + data['class'] + "'></div>");
 		$(".shm_modal_container").append("<div class='shm_modal'></div>");
 		$(".shm_modal_container").append("<div class='shm_modal_screen wp-core-ui'></div>");
 		$(".shm_modal_screen").append("<div class='shm_modal_header shm-color-grey'>" + data.title + "</div>");
@@ -377,7 +378,12 @@ jQuery(document).ready(function($)
 		$(".shm_modal_screen").append("<div class='shm_modal_body'>" + data.content + "</div>");
 		$(".shm_modal_screen").append("<div class='shm_modal_footer'></div>");
 		if(data.send)
-			$(".shm_modal_footer").append("<button class='button' onClick='" + data.sendHandler + "(" + data.sendArgs + ");'>"+ data.send + "</button>");
+		{
+			$(".shm_modal_footer").append(
+				"<button class='button' onClick='" + data.sendHandler + "(" + data.sendArgs + ");'>"+ data.send + "</button>"
+			);
+		}
+		$(".shm_modal_footer").append(data.footer)
 		$(".shm_modal_footer").append("<button class='button' onclick='shm_close_modal();'>"+__("Close") + "</button>");
 		$(".shm_modal").on( 'click', function(evt) {
 			$(evt.currentTarget).parents(".shm_modal_container").detach();
@@ -394,7 +400,7 @@ jQuery(document).ready(function($)
 function shm_send( params, type )
 {
 	var $ = jQuery;
-	console.log(params, type);
+	// console.log(params, type);
 	jQuery.post	(
 
 		myajax.url,
@@ -406,7 +412,7 @@ function shm_send( params, type )
 		function( response ) 
 		{
 			var $ = jQuery;
-			console.log(response);
+			//console.log(response);
 			try
 			{
 				var dat = JSON.parse(response);
@@ -415,7 +421,7 @@ function shm_send( params, type )
 			{
 				return;
 			}
-			//alert(dat);
+			console.log(dat);
 			var command	= dat[0];
 			var datas	= dat[1];
 			//console.log(command);

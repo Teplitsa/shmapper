@@ -47,7 +47,7 @@
 					'post_name'    	=> $data['post_name'],
 					'post_title'    => $data['post_title'],
 					'post_content'  => $data['post_content'],
-					'post_status'   => 'publish',
+					'post_status'   => isset($data['post_status']) ? $data['post_status'] : 'publish',
 					"post_author"	=> $data['post_author'] ? $data['post_author'] : get_current_user_id()
 				)
 			);
@@ -83,7 +83,20 @@
 				return wp_delete_post($id->ID);
 			}
 		}
-		
+		static function update($data, $id)
+		{
+			$cd = [];
+			foreach($data as $key => $val)
+			{
+				if(in_array($key, ["post_type", 'post_name', 'post_title', 'post_content', 'post_status', "post_author", "thumbnail"]))
+					$cd[$key]	= $val;
+			}
+			$cd['ID']	= $id;
+			$id		= wp_update_post( $cd );
+			$post	= static::get_instance($id); 		
+			$post->update_metas($data);
+			return $post;
+		}
 		function update_metas($meta_array)
 		{
 			$data	= array();
@@ -375,6 +388,8 @@
 			foreach($obj as $key=>$value)
 			{
 				if($key == 't' ||$key == 'class' ) continue;
+				if(isset($value['hidden']) && $value['hidden'] || (isset($value['thread']) && $value['thread'] === false))
+					continue;
 				$posts_columns[$key] = isset($value['name']) ? $value['name'] : $key;
 			}
 			return $posts_columns;				
@@ -442,6 +457,7 @@
 							case "id":
 							default:
 								$elem			= $SMC_Object_type->get_object($meta, $obj[$column_name]["object"] );
+								
 								switch( $obj[$column_name]["object"])
 								{
 									case "user":
@@ -458,6 +474,8 @@
 										{
 											$p = get_post($meta);
 											$post_title = $p->post_title;
+											$color = get_post_meta($meta, "color", true);
+											
 											echo "
 											<strong>$post_title</strong>
 											<br>
@@ -465,14 +483,30 @@
 											<div style='background-color:#$color; width:15px;height:15px;'></div>";
 										}
 										break;
-									case "taxonomy":
-									default:
-										$term = get_term_by("term_id", $meta, $elem);
-										echo $term ? "<h6>".$term->name ."</h6> <div class='IDs'><span>ID</span>".$meta. "</div>
-											<div style='background-color:#$color; width:15px;height:15px;'></div>" : $meta;
+									case "taxonomy": 
+										if($meta)
+										{
+											$p = get_term_by("term_id", $meta, $column_name);
+											$post_title = $p->name; 
+											$color = get_term_meta($meta, "color", true);
+											
+											echo "
+											<strong>$post_title</strong>
+											<br>
+											<div style='background-color: $color' class='IDs'><span>ID</span>".$meta. "</div> ";
+										}
 										break;
-								}
-								break;
+									default:
+										echo apply_filters(
+											"smc_post_fill_views_column",
+											"-- booboo --",
+											$column_name,
+											$post_id, 
+											$obj, 
+											$meta
+										);
+										
+								}	 
 						}
 					}
 					break;
@@ -676,8 +710,15 @@
 					case "boolean":
 						$h = "<input type='checkbox' class='checkbox' name='$key' id='$key' value='1' " . checked(1, $meta, 0) . "/><label for='$key'></label>";
 						break;
-					default:
-						$h = "<input type='' name='$key' id='$key' value='$meta' class='sh-form'/>";
+					default: 
+						$h = apply_filters(
+							"smc-post-admin-edit", 
+							"<input type='' name='$key' id='$key' value='$meta' class='sh-form'/>", 
+							$meta, 
+							$obj, 
+							$key, 
+							$value
+						);
 				}
 				$html .="<div class='shm-row'>
 					<div class='shm-3 shm-md-12 sh-right sh-align-middle'>".$value['name'] . "</div>

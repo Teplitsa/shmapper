@@ -23,9 +23,26 @@
 	background-repeat:no-repeat;
 	background-position: center;
 }
+.shm-h-100
+{
+	height:100%;
+}
+.shm-w-100
+{
+	width:100%;
+}
 .shm-flex
 {
 	display:flex;
+}
+.shm-flex-columns
+{
+	display:flex;
+	flex-direction:column;
+}
+.shm-align-items-center
+{
+	align-items:center;
 }
 .shm-admin-block
 {
@@ -49,6 +66,10 @@
 .shmw-100
 {
 	width:100%;
+}
+.shmw-50
+{
+	width:50%;
 }
 .osm-point
 {
@@ -85,6 +106,60 @@
 	top: -5px;
 	left: 5px;
 	z-index: -100;
+}
+.shm-button
+{
+	display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+	color: #0071a1;
+    border-color: #0071a1;
+    background: #f3f5f6;
+    vertical-align: top;
+	text-align:center;
+	-webkit-transition: all 100ms ease-out;
+	-moz-transition: all 100ms ease-out;
+	-ms-transition: all 100ms ease-out;
+	-o-transition: all 100ms ease-out;
+	transition: all 100ms ease-out;
+}
+.shm-button:hover
+{
+	color: #000;
+    border-color: #000;
+}
+.shm-button:active
+{
+    background: #FFF;
+}
+textarea::-webkit-input-placeholder   
+{
+	color:#00000040;
+}
+textarea::-moz-placeholder       
+{
+	color:#00000040;
+}
+/* Firefox 19+ */
+textarea:-moz-placeholder      
+{
+	color:#00000040;
+}
+/* Firefox 18- */
+textarea:-ms-input-placeholder      
+{
+	color:#00000040;
 }
 @keyframes wobblehor 
 {
@@ -563,9 +638,13 @@
 	margin:0 5px 0 0;
 	color:#FFF!important;
 }
+.shm-padding-0
+{
+	padding:0px!important;
+}
 .shm-padding-20
 {
-	padding:20px;
+	padding:20px!important;
 }
 .shm-title,
 .shm-title-1,
@@ -997,6 +1076,7 @@ tfoot .shm-notify2:after
 	padding: 5px 0 0 0 ;
 	position: relative;
 }
+.shm-type-icon-1,
 .shm-type-icon
 {
 	float:left;
@@ -1011,15 +1091,23 @@ tfoot .shm-notify2:after
 	opacity:0.85;
 	z-index: 1000;
 }
+.shm-type-icon-1:hover,
 .shm-type-icon:hover
 {
 	opacity:1;
 }
+.shm-type-icon-1:active,
 .shm-type-icon:active
 {
 	background-color:#AA0000;
 	background-size:24px;
 	opacity:1;
+}
+.shm-type-icon-1
+{    
+	background-size: 22px;
+    width: 26px;
+    height: 26px;
 }
 .shm_modal_container
 {
@@ -1038,7 +1126,7 @@ tfoot .shm-notify2:after
 	background:rgba(0,0,0,0.75);
 	width:100%;
 	height:100%;
-	z-index:-1;
+	z-index:-1; 
 }
 .shm_modal_screen
 {
@@ -1048,6 +1136,8 @@ tfoot .shm-notify2:after
 	min-height:100px;
 	margin:100px auto;
 	z-index:1;
+    display: flex;
+    flex-direction: column;
 }
 .shm_modal_header
 {
@@ -1055,7 +1145,8 @@ tfoot .shm-notify2:after
 	font-size:1.3rem;
 	font-weight:100;
 	font-family:sans-serif;
-	border-bottom:1px solid rgba(0,0,0,0.125);
+	border-bottom:1px solid rgba(0,0,0,0.125);   
+	flex-grow: 1;
 }
 .shm_modal_body,
 .shm_modal_footer
@@ -1064,8 +1155,35 @@ tfoot .shm-notify2:after
 	font-size:1rem;
 	font-weight:100;
 	font-family:sans-serif;
-	max-height: 380px;
 	overflow-y: auto;
+	flex-grow: 1;
+}
+.shm_modal_body
+{
+	flex-grow: 1000;
+	max-height: 380px;
+}
+.shm_modal_footer
+{
+	
+    display: flex;
+    justify-content: flex-end;
+}
+.shm-max
+{
+	max-width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.shm-max .shm_modal_screen
+{
+    max-width: 100%;
+    height: calc(100% - 100px);
+    margin: 50px;
+}
+.shm-max .shm_modal_body
+{
+	max-height: 100%;	
 }
 .shm_modal_close
 {
@@ -1532,6 +1650,31 @@ input[type=radio].ganre_checkbox2:not(checked) + label img
   left:0!important;
   z-index:99999;
 }
+.shm_icon_bck
+{
+	position:relative;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
+	padding:1px;
+}
+.shm_icon_placemark
+{
+	width:60px;
+	height:60px;
+	margin:5px;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	font-size:11px;
+ 
+}
+.shm_icon_placemark_title
+{
+	font-size:10px;
+	background-color:#FFFFFF ; 
+}
 
 @media
   (-webkit-min-device-pixel-ratio:2),
@@ -1599,7 +1742,9 @@ input[type=radio].ganre_checkbox2:not(checked) + label img
 	}
 }
 
-.shm-type-icon.shmapperMarkerSelected {
+.shm-type-icon-1.shmapperMarkerSelected, 
+.shm-type-icon.shmapperMarkerSelected 
+{
 	border: 1px solid #111111;
 }
 
@@ -1655,7 +1800,9 @@ input[type=radio].ganre_checkbox2:not(checked) + label img
 
 /** Range Control */
 .shm-range[type=range] {
-	display: block;
+	display: inline-flex;	
+    padding: 0;
+    border: none;
 	-webkit-appearance: none;
 	background-color: #bdc3c7;
 	width: calc( 100% - 30px );

@@ -11,7 +11,6 @@ jQuery(document).ready(function($)
 	
 	//send new request
 	$('form.shm-form-request').on( 'submit', function(evt) {
-
 		evt.preventDefault();
 		
 		var $this = $(evt.currentTarget);
@@ -22,7 +21,7 @@ jQuery(document).ready(function($)
 			{
 				$(elem).addClass("shm-alert");
 			}
-		});
+		}); 
 		if( $this.find(".shm-alert").length )	return;
 		var data = $this.serializeArray();
 		var d = new FormData();
@@ -44,13 +43,15 @@ jQuery(document).ready(function($)
 			var val = el.value;
 			if(val) {
 				val = String(val).replace(/,/g, "{{shmapper_comma}}");
-			}
+			} 
 			return val;
 		} ).get() );
+		console.log( d );
 		$.each( shm_img, function( key, value )
-		{
+		{			
 			d.append( key, value );
-		});
+		}); 
+		
 		// AJAX запрос
 		$.ajax({
 			url         : shm_set_req.url,
@@ -88,7 +89,7 @@ jQuery(document).ready(function($)
 			data: d,
 			error: function( jqXHR, status, errorThrown )
 			{
-				add_message( "Error" );
+				add_message( "Error" ); 
 			}
 
 		});
@@ -102,7 +103,7 @@ function add_message(msg)
 		clearTimeout(setmsg);
 		jQuery("<div class='msg'>" + msg + "</div>").appendTo("body").hide().fadeIn("slow");
 		setmsg = setTimeout( function() {
-			jQuery(".msg").fadeOut(700, jQuery(".msg").detach());
+			jQuery(".msg").fadeOut( 700 );
 		}, 6000);
 	}
 }

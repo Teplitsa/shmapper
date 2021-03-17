@@ -36,7 +36,8 @@ class ShMapper_ajax
 	static function insert_marker($data) {
 		$res 	= ShMapperRequest::insert($data);
 		
-		if( !ShMapper::$options['shm_map_marker_premoderation'] ) {
+		if( !ShMapper::$options['shm_map_marker_premoderation'] && $res) 
+		{
 			$point = ShmPoint::insert([
 				"post_title"	=> (string)$res->get("post_title"),
 				"post_name"		=> (string)$res->get("post_name"),
@@ -48,7 +49,8 @@ class ShMapper_ajax
 				"map_id"		=> (int)$res->get_meta("map"),
 			]);
 			
-			if($attach_id = get_post_thumbnail_id($res->id)) {
+			if($attach_id = get_post_thumbnail_id($res->id)) 
+			{
 				set_post_thumbnail($point->id, (int)$attach_id);
 			}
 			
@@ -103,7 +105,7 @@ class ShMapper_ajax
 			'res'			=> $res,
 			'data'			=> $data,
 			"msg"			=> $msg,
-			//"form"		=> $form,
+			"form"		=> $form,
 			"grec"			=> $grec,
 			//"attach_id"	=> $attach_id,
 			'grecaptcha'	=> ShMapper::$options['shm_settings_captcha']

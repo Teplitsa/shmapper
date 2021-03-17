@@ -266,22 +266,47 @@ class ShMapperRequest extends SMC_Post
 		}
 		$contents[] =  "<div>" . sanitize_text_field($data['shm_point_loc']) . "</div>";
 		$h['contents'] 		= implode("<br>", $contents);
-		$arr = [
-			"post_type" 	=> static::get_type(),
-			"post_name" 	=> $title ? $title : $map->get("post_name"),
-			"post_title" 	=> $title ? $title : $map->get("post_title"),
-			"post_content"	=> sanitize_text_field( $h['contents'] ),
-			"map"			=> (int)$data['id'],
-		    "location"		=> sanitize_text_field($data['shm_point_loc']),
-			"latitude"		=> ( (int) ($data['shm_point_lat'] * 10000)) / 10000,
-			"longitude"		=> ( (int) ($data['shm_point_lon'] * 10000)) / 10000,
-		    "type"			=> sanitize_text_field($data['shm_point_type']),
-			"contacts"		=> $contacts,
-			"description"	=> $description,
-			"author"		=> $author
-		];
-		$new_req = parent::insert($arr);
 		
+		$arr = apply_filters(
+			"shm_before_insert_request", 
+			[
+				"post_type" 	=> static::get_type(),
+				"post_name" 	=> $title ? $title : $map->get("post_name"),
+				"post_title" 	=> $title ? $title : $map->get("post_title"),
+				"post_content"	=> sanitize_text_field( $h['contents'] ),
+				"map"			=> (int)$data['id'],
+				"location"		=> sanitize_text_field($data['shm_point_loc']),
+				"latitude"		=> ( (int) ($data['shm_point_lat'] * 10000)) / 10000,
+				"longitude"		=> ( (int) ($data['shm_point_lon'] * 10000)) / 10000,
+				"type"			=> sanitize_text_field($data['shm_point_type']),
+				"contacts"		=> $contacts,
+				"description"	=> $description,
+				"author"		=> $author
+			],  
+			$data
+		);
+		if(!$arr['forbiddance'])
+			$new_req = parent::insert($arr);
+		
+		$arr = apply_filters(
+			"shm_after_insert_request", 
+			[
+				"post_type" 	=> static::get_type(),
+				"post_name" 	=> $title ? $title : $map->get("post_name"),
+				"post_title" 	=> $title ? $title : $map->get("post_title"),
+				"post_content"	=> sanitize_text_field( $h['contents'] ),
+				"map"			=> (int)$data['id'],
+				"location"		=> sanitize_text_field($data['shm_point_loc']),
+				"latitude"		=> ( (int) ($data['shm_point_lat'] * 10000)) / 10000,
+				"longitude"		=> ( (int) ($data['shm_point_lon'] * 10000)) / 10000,
+				"type"			=> sanitize_text_field($data['shm_point_type']),
+				"contacts"		=> $contacts,
+				"description"	=> $description,
+				"author"		=> $author
+			],
+			$new_req, 
+			$data
+		);
 		//attach
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );

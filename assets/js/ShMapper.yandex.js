@@ -71,7 +71,8 @@ jQuery(document).ready(function($)
 	addAdress = function($this, new_mark_coords)
 	{	
 		ymaps.geocode(new_mark_coords).then(function (res) 
-		{
+		{		
+			//console.log( new_mark_coords );
 			var firstGeoObject = res.geoObjects.get(0);
 			var getAdministrativeAreas = firstGeoObject.getAdministrativeAreas().join(", ");
 			var getLocalities = firstGeoObject.getLocalities().join(", ");
@@ -121,10 +122,10 @@ jQuery(document).ready(function($)
 	// place marker by addr
 	function shm_place_marker_by_addr($this) {
 		var addr = $this.val();
-		console.log(addr);
-
+		//console.log(addr);
+		
 		var $selectedMarker = $this.closest('.shm-form-request').find('.shm-form-placemarks .shm-type-icon.shmapperMarkerSelected');
-
+		
 		if(!$selectedMarker.length) {
 			$selectedMarker = $this.closest('.shm-form-request').find('.shm-form-placemarks .shm-type-icon').first();
 			$selectedMarker.addClass('shmapperMarkerSelected');
@@ -132,9 +133,11 @@ jQuery(document).ready(function($)
 		
 		ymaps.geocode(addr).then(function (res) {
 			var firstGeoObject = res.geoObjects.get(0);
-
+//			console.log("decoded");
+			
 			new_mark_coords = firstGeoObject.geometry.getCoordinates();
-
+//			console.log(new_mark_coords);
+			
 			var $map_id = $selectedMarker.parents("form.shm-form-request").attr("form_id");
 			map = shm_maps[$map_id];
 			
@@ -142,7 +145,8 @@ jQuery(document).ready(function($)
 			shmapperPlaceMarkerOnMapByCoords(map, new_mark_coords, $selectedMarker);
 			
 		}, function (err) {
-			console.log(err);
+//		    console.log("error");
+		    console.log(err);
 		}); 
 	}
 
@@ -151,121 +155,24 @@ jQuery(document).ready(function($)
 		shm_place_marker_by_addr($(this));
 	});
 	$addrInput.keydown(function(e){
-		if(e.keyCode == 13){
-			e.preventDefault();
+	    if(e.keyCode == 13){
+	        e.preventDefault();
 			shm_place_marker_by_addr($(this));
-		}
+	    }
 	});
 	
-	var isDraggable = false;
-	if ( shmYa.isAdmin == 'true' ) {
-		isDraggable = true;
-	}
-
-	console.log(isDraggable);
-	console.log(shmYa.isAdmin);
-
 	//
 	init_map = function(mData, points)
 	{
-
-		var restrinctArea = [[-85, -179], [85, 179]];
-		if ( shmYa.isAdmin == 'true' ) {
-			restrinctArea = false;
-		}
-
 		var i=0, paramet;
-		var myMap = new ymaps.Map( mData.uniq, 
+		var myMap = new ymaps.Map(mData.uniq, 
 		{
-			center: [ mData.latitude, mData.longitude],
-			controls: [ ],
-			zoom: mData.zoom,
-			type: 'yandex#' + mData.mapType
-		}, {
-			restrictMapArea: restrinctArea
+		  center: [ mData.latitude, mData.longitude],
+		  controls: [ ],
+		  zoom: mData.zoom,
+		  type: 'yandex#' + mData.mapType
 		});
-
-		if ( mData.country && mData.overlay ) {
 		
-			var map = myMap;
-
-			if (  mData.country === 'RU' ) {
-				
-				ymaps.regions.load( 'RU', {
-					lang: shmYa.langIso,
-					quality: 3,
-					disputedBorders: ''
-				}).then(function (result) {
-					var background = new ymaps.Polygon([
-						[
-							[85, -179.99],
-							[85, 179.99],
-							[-85, 179.99],
-							[-85, -179.99],
-							[85, -179.99]
-						]
-					], {}, {
-						fillColor: mData.overlay,
-						strokeWidth: 1,
-						strokeColor: mData.border,
-						opacity: mData.overlayOpacity,
-						coordRendering: 'straightPath'
-					});
-
-					var regions = result.geoObjects;
-
-					regions.each(function (reg) {
-						var masks = reg.geometry._coordPath._coordinates;
-						if ( reg.properties.get('osmId') != '151231' ) {
-							masks.forEach(function(mask){
-								background.geometry.insert(1, mask);
-							});
-						}
-					});
-
-					map.geoObjects.add( background );
-				});
-
-			} else {
-
-				// Load Countries.
-				ymaps.borders.load( '001' , {
-					lang: shmYa.langIso,
-					quality: 3,
-				} ).then( function( result ) {
-
-					var background = new ymaps.Polygon([
-						[
-							[85, -179.99],
-							[85, 179.99],
-							[-85, 179.99],
-							[-85, -179.99],
-							[85, -179.99]
-						]
-					], {}, {
-						fillColor: mData.overlay,
-						strokeWidth: 1,
-						strokeColor: mData.border,
-						opacity: mData.overlayOpacity,
-						coordRendering: 'straightPath'
-					});
-
-					// Find country by iso.
-					var region = result.features.filter(function (feature) { 
-						return feature.properties.iso3166 == mData.country; })[0];
-
-					// Add world overlay.
-					var masks = region.geometry.coordinates;
-					masks.forEach( function( mask ){
-						background.geometry.insert(1, mask);
-					});
-					map.geoObjects.add( background );
-
-				});
-
-			}
-		}
-
 		//search 
 		if(mData.isSearch)
 		{
@@ -308,8 +215,7 @@ jQuery(document).ready(function($)
 		{
 			myMap.behaviors.disable('scrollZoom');
 			myMap.behaviors.disable('drag');
-		}
-
+		}	
 		// add to global array
 		shm_maps[mData.uniq] = myMap;
 		
@@ -365,7 +271,7 @@ jQuery(document).ready(function($)
 					iconImageOffset: [-w/2, -h/2],
 					term_id:elem.term_id,
 					type:'point',
-					draggable: isDraggable
+					draggable: true
 				};
 			}
 			else if( mData.default_icon && !elem.color)
@@ -380,13 +286,14 @@ jQuery(document).ready(function($)
 					iconImageOffset: [-20, -20],
 					term_id:-1,
 					type:'point',
-					draggable: isDraggable
+					draggable: true
 				};
 				
 			}
 			else
 			{
 				paramet = {
+					draggable: true,
 					balloonMaxWidth: 250,
 					balloonItemContentLayout: customItemContentLayout,
 					hideIconOnBalloonOpen: false,
@@ -394,7 +301,7 @@ jQuery(document).ready(function($)
 					preset: 'islands#dotIcon',
 					term_id:elem.term_id,
 					type:'point',
-					draggable: isDraggable
+					draggable: true
 				}
 			}
 			
@@ -406,8 +313,8 @@ jQuery(document).ready(function($)
 						type: 'Point', // тип геометрии - точка
 						coordinates: [elem.latitude, elem.longitude] // координаты точки
 					},
-					draggable: false,
-					balloonContentHeader: elem.post_title,
+					draggable: true,
+					balloonContentHeader: elem.post_title, 
 					balloonContentBody: elem.post_content,
 					balloonContentFooter: '',
 					hintContent: elem.post_title
@@ -459,7 +366,9 @@ jQuery(document).ready(function($)
 			if($selectedMarker.size()) {
 				shmapperPlaceMarkerOnMap({"clientX": evt.get('domEvent').get('pageX'), "clientY": evt.get('domEvent').get('pageY') - window.scrollY}, {"helper": $selectedMarker});
 			}
-		});				
+		});
+			var finish_draw_map = new CustomEvent("finish_draw_map", {bubbles : true, cancelable : true, detail : {data:mData, points:points} });
+			document.documentElement.dispatchEvent(finish_draw_map);		
 	}
 
 	is_admin = function(myMap, mData)
