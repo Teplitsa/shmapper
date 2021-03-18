@@ -180,7 +180,7 @@ function draw_shMap($map, $args )
 					init_map( mData, points );
 
 					ymaps.borders.load( '001' , {
-						//lang: shmYa.langIso,
+						lang: shmYa.langIso,
 						quality: 1
 					}).then(function (result) {
 

@@ -1,6 +1,26 @@
 
 jQuery(document).ready(function($)
 {
+	
+	//hide|show  Form in Map admin
+	if(!$("#is_form").is(":checked"))
+	{
+		$(".shm-map-form-admin").hide();
+	}
+	$("#is_form").on("click", evt =>
+	{
+		$(".shm-map-form-admin").toggle();
+	})
+	//hide|show personal in Form in Map admin
+	if(!$("#is_personal_data").is(":checked"))
+	{
+		$(".shm-map-resonals").hide();
+	}
+	$("#is_personal_data").on("click", evt =>
+	{
+		$(".shm-map-resonals").toggle();
+	})
+	
 	//ajax
 	$("[shm_notify_req]").on( 'click', function(evt) {
 		var postid = $(evt.currentTarget).attr("shm_notify_req");	

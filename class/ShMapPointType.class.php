@@ -254,10 +254,10 @@ class ShMapPointType
 	{
 		if(!is_array($params))
 			$params=[ "id" => "ganres", "name" => "ganres", "class"=> "form-control", "taxonomy"=> SHM_POINT_TYPE];
-		$all = get_terms(['taxonomy' => SHM_POINT_TYPE, 'hide_empty' => false ]);
+		$all = get_terms(['taxonomy' => $params['taxonomy'], 'hide_empty' => false ]);
 		$multiple = $params['multiple'] ? " multiple " : "" ;
 		$selector =$params['selector']  ? " selector='" . $params['selector'] . "' " : " s='ee' ";
-		$html = "<select name='".$params['name']."' id='".$params['id']."' $multiple class='".$params['class']."'  style='".$params['style']."' $selector>";
+		$html = "<select name='".$params['name']."' id='".$params['id']."' $multiple class='".$params['class']."' $selector>";
 		foreach($all as $term)
 		{
 			$selected = in_array($term->term_id, $params['selected']) ? "selected" : "";

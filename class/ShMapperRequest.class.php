@@ -306,7 +306,7 @@ class ShMapperRequest extends SMC_Post
 			],
 			$new_req, 
 			$data
-		);
+		);		
 		//attach
 		require_once( ABSPATH . 'wp-admin/includes/image.php' );
 		require_once( ABSPATH . 'wp-admin/includes/file.php' );

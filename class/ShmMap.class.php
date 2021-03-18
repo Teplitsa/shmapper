@@ -384,13 +384,13 @@ class ShmMap extends SMC_Post
 					</div>
 					<div class='shm-12'>
 						<div class='shm-admin-block'>
-							<input type='color' name='overlay_color' value='" . esc_attr( $overlay_color ) . "'>
+							<input type='text' name='overlay_color' value='" . esc_attr( $overlay_color ) . "'>
 							<p class='description'>".
 								__("Choose map overlay color", SHMAPPER) . 
 							"</p>
 						</div>
 						<div class='shm-admin-block'>
-							<input type='color' name='border_color' value='" . esc_attr( $border_color ) . "'>
+							<input type='text' name='border_color' value='" . esc_attr( $border_color ) . "'>
 							<p class='description'>".
 								__("Choose country border color", SHMAPPER) . 
 							"</p>
@@ -438,93 +438,95 @@ class ShmMap extends SMC_Post
 					<label for='is_form'>". __("Enable crowdsourcing function (free add Users new Markers)", SHMAPPER). "</label>
 				</div>				
 			</div>
-			<div class='spacer-5'></div>
-			<div class='shm-row'>
-				<h3 class='shm-12'>". __("2.1. What is the name of your information form?", SHMAPPER). "</h3>
-				<div class='shm-12'>
-					<input type='text' value='".$form_title . "' name='form_title' id='form_title' class='shmw-100 shm-form'/>
-					<p class='description'>" .
-						__("For example &laquo;All beaches by the river&raquo;", SHMAPPER) .
-					"</p>
-				</div>
-			</div>
-			<div class='spacer-5'></div>
-			<div class='shm-row'>
-				<h3 class='shm-12'>". __("2.2. Will I notify the author about new posts?", SHMAPPER). "</h3>
-				<div class='shm-12'>
-					<input type='checkbox' value='1' ". checked(1, $notify_owner, false) ."' name='notify_owner' id='notify_owner'/>
-					<label for='notify_owner'>" . __("Notify owner of Map", SHMAPPER) . "</label>
-				</div>
-			</div>
-			<div class='spacer-5'></div>
-			<div class='shm-row'>
-				<h3 class='shm-12'>". __("2.3. What information can users enter?", SHMAPPER). "</h3>
-				<div class='shm-12'>
-					<p class='description'>" .
-						__("You can create your own forms using form elements: & laquo; Text line & raquo;, & laquo; Text field & raquo;, & laquo; Upload files & raquo;, & laquo; Categories of Markers & raquo;", SHMAPPER) .
-					"</p>
-				</div>
-				<div class='shm-12'>".			
-					static::formEditor( $form_forms ? $form_forms : ShmForm::get_default() ).
-				"</div>
-			</div>
-			<div class='spacer-5'></div>
-			<div class='shm-row'>
-				<h3 class='shm-12'>". __("2.4. Can users leave their contact information?", SHMAPPER). "</h3>
-				<div class='shm-12'>
-					<input type='checkbox' value='1' ". checked(1, $is_personal_data, false) ."' name='is_personal_data' id='is_personal_data'/>
-					<label for='is_personal_data'>" . __("Users can leave their contact details for feedback.", SHMAPPER) . "</label>
-				</div>
-			</div>
-			<div class='spacer-5'></div>
-			<div class='shm-row'>
-				<h3 class='shm-12'>". __("2.5. What data users will have to put?", SHMAPPER). "</h3>
-				<div class='shm-12'>
-					<div class='shm-incblock sh-center'>
-						<label for='is_name_iclude'>" . __("Include", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_name_iclude, false) ."' name='is_name_iclude' id='is_name_iclude'/>
-					</div>
-					
-					<div class='shm-incblock'>
-						<label for='personal_name'>" . __("Personal name", SHMAPPER) . "</label><br>
-						<input type='text' value='$personal_name' name='personal_name' id='personal_name' class='shm-admin-block'/>
-					</div>
-					
-					<div class='shm-incblock'>
-						<label for='is_name_required'>" . __("Required", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_name_required, false) ."' name='is_name_required' id='is_name_required'/>
+			<div class='shm-map-form-admin'> 
+				<div class='spacer-5'></div>
+				<div class='shm-row'>
+					<h3 class='shm-12'>". __("2.1. What is the name of your information form?", SHMAPPER). "</h3>
+					<div class='shm-12'>
+						<input type='text' value='".$form_title . "' name='form_title' id='form_title' class='shmw-100 shm-form'/>
+						<p class='description'>" .
+							__("For example &laquo;All beaches by the river&raquo;", SHMAPPER) .
+						"</p>
 					</div>
 				</div>
-				<div class='shm-12'>
-					<div class='shm-incblock sh-center'>
-						<label for='is_email_iclude'>" . __("Include", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_email_iclude, false) ."' name='is_email_iclude' id='is_email_iclude'/>
-					</div>
-					
-					<div class='shm-incblock'>
-						<label for='personal_email'>" . __("Personal email", SHMAPPER) . "</label><br>
-						<input type='text' value='$personal_email' name='personal_email' id='personal_email' class='shm-admin-block'/>
-					</div>
-					
-					<div class='shm-incblock'>
-						<label for='is_email_required'>" . __("Required", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_email_required, false) ."' name='is_email_required' id='is_email_required'/>
+				<div class='spacer-5'></div>
+				<div class='shm-row'>
+					<h3 class='shm-12'>". __("2.2. Will I notify the author about new posts?", SHMAPPER). "</h3>
+					<div class='shm-12'>
+						<input type='checkbox' value='1' ". checked(1, $notify_owner, false) ."' name='notify_owner' id='notify_owner'/>
+						<label for='notify_owner'>" . __("Notify owner of Map", SHMAPPER) . "</label>
 					</div>
 				</div>
-				<div class='shm-12'>
-					<div class='shm-incblock sh-center'>
-						<label for='is_phone_iclude'>" . __("Include", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_phone_iclude, false) ."' name='is_phone_iclude' id='is_phone_iclude'/>
+				<div class='spacer-5'></div>
+				<div class='shm-row'>
+					<h3 class='shm-12'>". __("2.3. What information can users enter?", SHMAPPER). "</h3>
+					<div class='shm-12'>
+						<p class='description'>" .
+							__("You can create your own forms using form elements: & laquo; Text line & raquo;, & laquo; Text field & raquo;, & laquo; Upload files & raquo;, & laquo; Categories of Markers & raquo;", SHMAPPER) .
+						"</p>
 					</div>
-					
-					<div class='shm-incblock'>
-						<label for='personal_phone'>" . __("Personal phone", SHMAPPER) . "</label><br>
-						<input type='text' value='$personal_phone' name='personal_phone' id='personal_phone' class='shm-admin-block'/>
+					<div class='shm-12'>".			
+						static::formEditor( $form_forms ? $form_forms : ShmForm::get_default() ).
+					"</div>
+				</div>
+				<div class='spacer-5'></div>
+				<div class='shm-row'>
+					<h3 class='shm-12'>". __("2.4. Can users leave their contact information?", SHMAPPER). "</h3>
+					<div class='shm-12'>
+						<input type='checkbox' value='1' ". checked(1, $is_personal_data, false) ."' name='is_personal_data' id='is_personal_data'/>
+						<label for='is_personal_data'>" . __("Users can leave their contact details for feedback.", SHMAPPER) . "</label>
 					</div>
-					
-					<div class='shm-incblock'>
-						<label for='is_phone_required'>" . __("Required", SHMAPPER) . "</label><br>
-						<input type='checkbox' value='1' ". checked(1, $is_phone_required, false) ."' name='is_phone_required' id='is_phone_required'/>
+				</div>
+				<div class='spacer-5'></div>
+				<div class='shm-row shm-map-resonals'>
+					<h3 class='shm-12'>". __("2.5. What data users will have to put?", SHMAPPER). "</h3>
+					<div class='shm-12'>
+						<div class='shm-incblock sh-center'>
+							<label for='is_name_iclude'>" . __("Include", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_name_iclude, false) ."' name='is_name_iclude' id='is_name_iclude'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='personal_name'>" . __("Personal name", SHMAPPER) . "</label><br>
+							<input type='text' value='$personal_name' name='personal_name' id='personal_name' class='shm-admin-block'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='is_name_required'>" . __("Required", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_name_required, false) ."' name='is_name_required' id='is_name_required'/>
+						</div>
+					</div>
+					<div class='shm-12'>
+						<div class='shm-incblock sh-center'>
+							<label for='is_email_iclude'>" . __("Include", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_email_iclude, false) ."' name='is_email_iclude' id='is_email_iclude'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='personal_email'>" . __("Personal email", SHMAPPER) . "</label><br>
+							<input type='text' value='$personal_email' name='personal_email' id='personal_email' class='shm-admin-block'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='is_email_required'>" . __("Required", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_email_required, false) ."' name='is_email_required' id='is_email_required'/>
+						</div>
+					</div>
+					<div class='shm-12'>
+						<div class='shm-incblock sh-center'>
+							<label for='is_phone_iclude'>" . __("Include", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_phone_iclude, false) ."' name='is_phone_iclude' id='is_phone_iclude'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='personal_phone'>" . __("Personal phone", SHMAPPER) . "</label><br>
+							<input type='text' value='$personal_phone' name='personal_phone' id='personal_phone' class='shm-admin-block'/>
+						</div>
+						
+						<div class='shm-incblock'>
+							<label for='is_phone_required'>" . __("Required", SHMAPPER) . "</label><br>
+							<input type='checkbox' value='1' ". checked(1, $is_phone_required, false) ."' name='is_phone_required' id='is_phone_required'/>
+						</div>
 					</div>
 				</div>
 			</div>";
