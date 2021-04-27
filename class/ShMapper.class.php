@@ -398,15 +398,26 @@ class ShMapper {
 				'url' => admin_url('admin-ajax.php')
 			)
 		);
+		wp_localize_script(
+			'ShMapper',
+			'shmapper',
+			array(
+				'url'			=> SHM_URLPATH, 
+				SHM_POINT_TYPE	=> ShMapPointType::get_all_data()
+			)
+		);
 		wp_localize_script( 'ShMapper', 'shm_maps', array() );
 		wp_localize_script( 
 			'ShMapper', 
 			'voc', 
-			array(
-				'Attantion' => __( "Attantion", SHMAPPER ),
-				'Send' => __( "Send" ),
-				'Close' => __( "Close" ),
-				'Error: no map' => __( "Error: the form is not associated with the card. To link a map and a form, there should be 2 shortcodes on one page (map - [shmMap id = '6' map = 'true' uniq = 'for example, 777'] and form - [shmMap id = '94' form = 'true' uniq = 'for example, 777']), in which the uniq parameter will match", SHMAPPER ),
+			apply_filters(
+				"shm_voc", 
+				[					
+					'Attantion'		=> __( "Attantion", SHMAPPER ),
+					'Send' 			=> __( "Send" ),
+					'Close' 		=> __( "Close" ),
+					'Error: no map' => __( "Error: the form is not associated with the card. To link a map and a form, there should be 2 shortcodes on one page (map - [shmMap id = '6' map = 'true' uniq = 'for example, 777'] and form - [shmMap id = '94' form = 'true' uniq = 'for example, 777']), in which the uniq parameter will match", SHMAPPER ),
+				]
 			)
 		);
 
@@ -481,8 +492,7 @@ class ShMapper {
 			"", [
 				"shm_personal_text" => __("Save personal data garantee", SHMAPPER),
 				"shm_succ_request_text" => __("Successful send map request", SHMAPPER),
-				"shm_error_request_text" => __("Error send map request", SHMAPPER),
-				"aaa" => __("ccc", SHMAPPER),
+				"shm_error_request_text" => __("Error send map request", SHMAPPER)
 			]
 		);
 		foreach($vocab as $key => $value)
@@ -610,7 +620,7 @@ class ShMapper {
 							<small class='shm-color-grey'>".
 								sprintf(__("What is Google reCAPTCHA? How recived keys for your site? See %sthis instruction%s.", SHMAPPER), "<a href='https://webdesign.tutsplus.com/" . substr(get_bloginfo("language"), 0, 2) . "/tutorials/how-to-integrate-no-captcha-recaptcha-in-your-website--cms-23024'>", "</a>") .
 							"</small>
-							<div class='" . (empty(static::$options['shm_captcha_siteKey']) || empty(static::$options['shm_captcha_secretKey']) ? "" : "hidden") . "'>
+							<div class='" . (empty(static::$options['shm_captcha_siteKey']) || empty(static::$options['shm_captcha_secretKey']) ? "" : "_hidden") . "'>
 								<small class='shm-color-danger' id='recaptcha_danger'>".
 									__("Your reCAPTCHA doesn't work yet. In order to make it work, please get the API keys at google.com/recaptcha", SHMAPPER).
 								"</small>

@@ -77,7 +77,7 @@ jQuery(document).ready(function($)
 		var val = $(evt.currentTarget).val();
 		if(val != "")
 		{
-			$("#shmd_settings_wizzard").fadeIn().removeClass('hidden');
+			$("#shmd_settings_wizzard").fadeIn().removeClass('_hidden');
 		}
 		else
 		{
@@ -96,12 +96,12 @@ jQuery(document).ready(function($)
 	});
 	$("#shmd_google_preview").click(function(evt)
 	{
-		$('.shmd-loader').removeClass('hidden');
+		$('.shmd-loader').removeClass('_hidden');
 		shm_send([ 'shmd_google_preview' ]);
 	});
 	$("#shmd_google_update").click(function(evt)
 	{
-		$('.shmd-loader').removeClass('hidden');
+		$('.shmd-loader').removeClass('_hidden');
 		shm_send([ 'shmd_google_update' ]);
 	});
 	
@@ -127,10 +127,10 @@ jQuery(document).ready(function($)
 				break;
 			case "shmd_google_preview":
 				shm_add_modal( { title:"Preview", content: event.detail[1].matrix } );
-				$('.shmd-loader').addClass('hidden');
+				$('.shmd-loader').addClass('_hidden');
 				break;
 			case "shmd_google_update":
-				$('.shmd-loader').addClass('hidden');
+				$('.shmd-loader').addClass('_hidden');
 				break;
 		}
 	});

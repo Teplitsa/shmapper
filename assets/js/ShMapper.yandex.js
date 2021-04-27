@@ -94,7 +94,7 @@ jQuery(document).ready(function($)
 			lat.val(new_mark_coords[0]);
 			lon.val(new_mark_coords[1]);
 			if(!$this.data("straight_geocoding")) {
-				loc.val(shm_address).removeClass("hidden").hide().fadeIn("slow");
+				loc.val(shm_address).removeClass("_hidden").hide().fadeIn("slow");
 			}
 			type.val($this.attr("shm_type_id"));
 		})			

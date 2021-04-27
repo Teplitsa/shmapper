@@ -615,7 +615,7 @@ class ShmForm
 			<input type=hidden name='shm_point_lat' class='sh-form shm-bg-transparent small' />
 			<input type=hidden name='shm_point_lon' class='sh-form shm-bg-transparent small' />
 			<input type=hidden name='elem[]' class='sh-form shm-bg-transparent small' />
-			<input type=text name='shm_point_loc' class='sh-form shm-bg-transparent small ".(count($terms) > 1 ? "hidden" : "")."' />";
+			<input type=text name='shm_point_loc' class='sh-form shm-bg-transparent small ".(count($terms) > 1 ? "_hidden" : "")."' />";
 			$element['description'] .= __("Drag choosed icon and place it to map or click it and enter exact address.", SHMAPPER);
 		}
 	}

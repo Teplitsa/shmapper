@@ -17,10 +17,10 @@ jQuery(document).ready(function($)
 			if(elem.options.term_id == dat.term_id )
 			{
 				if(dat.$this.is(":checked"))
-					//elem._icon.classList.remove("hidden");
+					//elem._icon.classList.remove("_hidden");
 					$(elem._icon).css("opacity",1);
 				else
-					//elem._icon.classList.add("hidden");
+					//elem._icon.classList.add("_hidden");
 					$(elem._icon).css("opacity", 0.125);
 			}
 		});
@@ -379,7 +379,7 @@ jQuery(document).ready(function($)
 			if(!$selectedMarker.data("straight_geocoding")) {
 				geocodeService.reverse().latlng(eclectCoords).run(function(error, result) {
 					//console.log(result.address.Match_addr);
-					loc.val(result.address.Match_addr).removeClass("hidden").hide().fadeIn("slow");
+					loc.val(result.address.Match_addr).removeClass("_hidden").hide().fadeIn("slow");
 				});
 			}
 	
@@ -451,7 +451,7 @@ jQuery(document).ready(function($)
 				if(!$selectedMarker.data("straight_geocoding")) {
 					geocodeService.reverse().latlng(eclectCoords).run(function(error, result) {
 						//console.log(result.address.Match_addr);
-						loc.val(result.address.Match_addr).removeClass("hidden").hide().fadeIn("slow");
+						loc.val(result.address.Match_addr).removeClass("_hidden").hide().fadeIn("slow");
 					});
 				}
 			})

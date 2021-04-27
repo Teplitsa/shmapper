@@ -582,7 +582,7 @@ jQuery(document).ready(function($) {
 		$shmapperIcons.click(function(e) {
 			e.preventDefault();
 			$(this).closest('.shm-form-placemarks').find('.shm-type-icon').removeClass('shmapperMarkerSelected');
-			$(this).parents("form.shm-form-request").find('input[name="shm_point_loc"]').removeClass("hidden");
+			$(this).parents("form.shm-form-request").find('input[name="shm_point_loc"]').removeClass("_hidden");
 			
 			if(!$(this).hasClass('shmapperDragged')) {
 				$(this).addClass('shmapperMarkerSelected');
