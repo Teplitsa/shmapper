@@ -350,12 +350,12 @@ class ShMapperDrive
 										"</div>
 									</div> 
 								</div> 
-								<div class='hidden'> 
+								<div class='_hidden'> 
 									<small class='shm-color-grey mb-2'>".
 										__("List of columns in google table that need to parse to Point's description", SHMAPPER) .
 									"</small>
 								</div>
-								<div class='shm-row hidden'>
+								<div class='shm-row _hidden'>
 									<div class='shm-1'>".
 										__("Column", SHMAPPER) . 
 									"</div>
@@ -378,10 +378,10 @@ class ShMapperDrive
 										__("Order", SHMAPPER) . 
 									"</div>
 								</div>
-								<div class='hidden'>".							
+								<div class='_hidden'>".							
 									getGoogleRow(["n" => 0, 'include'=> 0, "id" => "google_null" ]) . 			
 								"</div>
-								<div id='google_row hidden'></div>
+								<div id='google_row _hidden'></div>
 
 								<div class='spacer-10'></div>
 
@@ -432,7 +432,7 @@ class ShMapperDrive
 								</div>
 							</div>
 								<div 
-									class='my-2 ".(static::$options['google_table_id'] != "" ? "" : " hidden ")."' 
+									class='my-2 ".(static::$options['google_table_id'] != "" ? "" : " _hidden ")."' 
 									id='shmd_settings_wizzard' 
 								>
 									<div class='button' id='shmd_settings_open'>" . 
@@ -444,7 +444,7 @@ class ShMapperDrive
 									<div class='button' id='shmd_google_update'>" . 
 										__("Create or update Poins and Messages", SHMAPPER) .
 									"</div>
-									<span class='dashicons dashicons-update shmd-loader hidden'></span>
+									<span class='dashicons dashicons-update shmd-loader _hidden'></span>
 								</div>	
 						</div>	
 						<div class='shm-1'>

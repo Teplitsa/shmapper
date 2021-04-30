@@ -23,6 +23,11 @@
 	background-repeat:no-repeat;
 	background-position: center;
 }
+.shm-justify-between
+{
+	display:flex;
+	justify-content: space-between;
+}
 .shm-h-100
 {
 	height:100%;
@@ -81,6 +86,28 @@
 	background: -webkit-canvas(circles); 
 	background-color:#FF0000;
 }
+.shm-mr-15
+{
+	margin-right:15px!important;
+}
+.shm-ml-15
+{
+	margin-left : 15px!important;
+}
+.shm-m-2
+{
+	margin : 2px!important;
+}
+.shm-mr-2
+{
+	margin-right : 2px!important;
+}
+.shm-ml-2
+{
+	margin-left : 2px!important;
+}
+
+
 .shm-size-40
 {
 	font-size:40px;
@@ -726,7 +753,7 @@ textarea:-ms-input-placeholder
 	display:block;
 	height:30px;
 }
-.hidden
+._hidden
 {
 	display:none!important;
 }

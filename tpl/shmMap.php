@@ -95,14 +95,20 @@ function draw_shMap($map, $args )
 
 	$points		= $map->get_map_points();
 	if($is_filtered || $is_csv)
-	{
+	{ 
 		$html .="
 			<div class='shm-map-panel' for='$uniq' style='width:$width;'>
 				$filters $csv
 			</div>";
 	}
 	$html 		.= "
-	<div class='shm_container' id='$uniq' shm_map_id='$id' style='height:" . $height . "px; width:$width;'>
+	<div 
+		class='shm_container' 
+		id='$uniq' 
+		shm_map_id='$id' 
+		style='height:" . $height . "px; width:$width;' 
+		coords='".$latitude.",".$longitude.",".$zoom."'
+	>
 	</div>$legend ";
 	$p = "";
 	$str = ["

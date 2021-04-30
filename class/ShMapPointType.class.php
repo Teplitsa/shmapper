@@ -266,6 +266,24 @@ class ShMapPointType
 		$html .="</select>";
 		return $html;
 	}
+	static function get_all_data()
+	{
+		$types = get_terms([
+			"taxonomy" 		=> SHM_POINT_TYPE,
+			"hide_empty"	=> false 			
+		]);
+		$ret = [];
+		foreach($types as $type)
+		{
+			$ret[] = [
+				"id"		=> $type->term_id,
+				"title" 	=> $type->name,
+				"content"	=> $type->description,
+				"icon"		=> static::get_icon_src( $type->term_id )
+			]; 
+		}
+		return $ret;
+	}
 	static function get_icon_src($term_id, $size=-1)
 	{
 		$size 		= $size == -1 ? get_term_meta( $term_id, "height", true ) : $size;
@@ -335,6 +353,13 @@ class ShMapPointType
 					$after = "
 						<label for='" . $params['prefix'] . "_" . $ganre->term_id . "' title='" . $ganre->name . "'>".
 							($cur_bgnd ? "<img src='$cur_bgnd' alt='' />" : "<div class='shm-clr-little' style='background:$color;'></div>").
+						"</label>";
+					break;
+				case "stroke-large":
+					$class = "ganre_checkbox";
+					$after = "
+						<label for='" . $params['prefix'] . "_" . $ganre->term_id . "' title='" . $ganre->name . "'>".
+							($cur_bgnd ? "<img src='$cur_bgnd' alt='' />" : "<div class='shm-clr' style='background:$color;'></div>").
 						"</label>";
 					break;
 				default:
