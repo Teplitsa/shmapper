@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: ShMapper by Teplitsa
- * Plugin URI: http://genagl.ru/?p=652
+ * Plugin Name: ShMapper by Teplitsa (for bike)
+ * Plugin URI: https://gitlab.com/protopiahome-public/it-public/shmapper/shmapper-for-bike
  * Description: Location and logistics services for NKO
  * Version: 1.4.1
  * Requires at least: 5.0
