@@ -66,8 +66,8 @@ jQuery(document).ready(function($)
 		var shmDefaultLongitude = $('[name=shm_default_longitude]').val();
 		var shmDefaultLatitude  = $('[name=shm_default_latitude]').val();
 		shm_send([ 'shm_default_coordinates', [ shmDefaultLongitude, shmDefaultLatitude ] ]);
-		console.log(shmDefaultLongitude);
-		console.log(shmDefaultLatitude) ;
+		//console.log(shmDefaultLongitude);
+		//console.log(shmDefaultLatitude) ;
 	});
 	$("[name=shm_default_zoom]").on( 'change', function(evt) {
 		setTimeout(function(){
@@ -400,7 +400,7 @@ jQuery(document).ready(function($)
 function shm_send( params, type )
 {
 	var $ = jQuery;
-	// console.log(params, type);
+	//console.log(params, type);
 	jQuery.post	(
 
 		myajax.url,
@@ -424,7 +424,7 @@ function shm_send( params, type )
 			console.log(dat);
 			var command	= dat[0];
 			var datas	= dat[1];
-			//console.log(command);
+			console.log(command);
 			switch(command)
 			{
 				case "test":
@@ -561,12 +561,18 @@ function shm_send( params, type )
 			}
 			if(datas.msg)
 			{
-				jQuery(".msg").detach();
-				clearTimeout(setmsg);
-				jQuery("<div class='msg'>" + datas.msg + "</div>").appendTo("body").hide().fadeIn("slow");
+
+				clearTimeout( setmsg );
+
+				if ( $( 'body > .msg' ).length ) {
+					$( 'body > .msg' ).remove();
+				}
+				$('<div class="msg">' + datas.msg + '</div>').appendTo('body');
+
 				setmsg = setTimeout( function() {
-					jQuery(".msg").fadeOut(700, jQuery(".msg").detach());
+					$( 'body > .msg' ).fadeOut( 700 );
 				}, 6000);
+
 			}
 		}		
 	);

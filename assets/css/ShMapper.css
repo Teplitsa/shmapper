@@ -380,6 +380,11 @@ textarea:-ms-input-placeholder
 	margin-left: -15px;
 	margin-top: 15px;
 }
+#adminmenu .shm_wizzard_footer a:hover {
+	cursor: pointer;
+	box-shadow: none;
+	color: #fff;
+}
 
 .shm_wizzard_line
 {

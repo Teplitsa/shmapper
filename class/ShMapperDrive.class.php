@@ -42,6 +42,15 @@ class ShMapperDrive
 			'google_geo_lon',
 			'is_google_point_type',
 			'google_unique',
+			'google_geo_adress',
+			'post_date',
+			'shmd_post_title',
+			'shmd_post_desc',
+			'google_table_id',
+			'map_id',
+			'google_geo_position',
+			'google_point_type',
+			'shm_doubled',
 		);
 
 		foreach ( $defaults as $default ) {

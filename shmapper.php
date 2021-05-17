@@ -3,7 +3,7 @@
  * Plugin Name: ShMapper by Teplitsa (Protopia Home)
  * Plugin URI: https://gitlab.com/protopiahome-public/it-public/shmapper/shmapper-protopia-home
  * Description: Location and logistics services for NKO
- * Version: 1.4.1
+ * Version: 1.4.3
  * Requires at least: 5.0
  * Requires PHP: 5.6
  * Author: Teplitsa. Technologies for Social Good
@@ -35,7 +35,7 @@
 	You should have received a copy of the GNU General Public License
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+*/
 
 /** Load textdomain */
 function init_textdomain_shmapper() {

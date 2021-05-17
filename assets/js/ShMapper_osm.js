@@ -224,7 +224,7 @@ jQuery(document).ready(function($)
 			//boxZoom:true,
 		});			
 		shm_maps[mData.uniq] = myMap;
-		all_markers[mData.uniq]	= [];	
+		all_markers[mData.uniq]	= [];
 		
 		//layer switcher 
 		if(mData.isLayerSwitcher)

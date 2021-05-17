@@ -555,10 +555,10 @@ class ShmMap extends SMC_Post
 			"width"				=> sanitize_text_field($_POST['width']),
 			"height"			=> sanitize_text_field($_POST['height']),
 
-			'highlight_country' => sanitize_text_field( $_POST['highlight_country'] ),
-			'overlay_color'     => sanitize_hex_color( $_POST['overlay_color'] ),
-			'border_color'      => sanitize_hex_color( $_POST['border_color'] ),
-			'overlay_opacity'   => sanitize_text_field( $_POST['overlay_opacity'] ),
+			'highlight_country' => sanitize_text_field( isset( $_POST['highlight_country'] ) ? $_POST['highlight_country'] : '' ),
+			'overlay_color'     => sanitize_hex_color( isset( $_POST['overlay_color'] ) ? $_POST['overlay_color'] : '' ),
+			'border_color'      => sanitize_hex_color( isset( $_POST['border_color'] ) ? $_POST['border_color'] : '' ),
+			'overlay_opacity'   => sanitize_text_field( isset( $_POST['overlay_opacity'] ) ? $_POST['overlay_opacity'] : '' ),
 
 			"is_form"			=> empty($_POST['is_form']) ? 0 : 1,
 			"form_title"		=> sanitize_text_field($_POST['form_title']),

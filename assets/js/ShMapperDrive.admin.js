@@ -32,7 +32,7 @@ jQuery(document).ready(function($)
 			if(!google_data[i])
 				google_data[i] = {};
 			var clone = $("#google_null").clone();
-			console.log( google_data[i] );
+			//console.log( google_data[i] );
 			google_data[i].include = typeof google_data[i].include != "undefined" ? parseInt(google_data[i].include)  : 1;
 			google_data[i].title   = typeof google_data[i].title   != "undefined" ? google_data[i].title    : google_matrix[0][i].toString();
 			google_data[i].meta    = typeof google_data[i].meta    != "undefined" ? google_data[i].meta     : getSingleGoogleIdenter( i );
@@ -49,7 +49,7 @@ jQuery(document).ready(function($)
 			$("#google_row").append( clone );
 			n++;
 		}
-		console.log(google_data);
+		//console.log(google_data);
 	}
 	var querry = {
 		"google-include" 	: "include",
@@ -87,7 +87,7 @@ jQuery(document).ready(function($)
 	});
 	$(" #shm-google-reload, [name='google_table_id']").click(function(evt)
 	{
-		shm_send([ 'load_google_table', $("[name='google_table_id']").val() ]);	
+		shm_send([ 'load_google_table', $("[name='google_table_id']").val() ]);
 	});
 	$("#shmd_settings_open").click(function(evt)
 	{
@@ -115,14 +115,14 @@ jQuery(document).ready(function($)
 	//ajax
 	document.addEventListener("_shm_send_", function( event ) 
 	{ 
-		console.log( event.detail ); 
+		//console.log( event.detail ); 
 		switch(event.detail[0])
 		{
 			case "load_google_table":
 				google_matrix 	= event.detail[1].matrix;
 				google_data 	= event.detail[1].data;
-				console.log( google_matrix );
-				console.log( google_data );
+				//console.log( google_matrix );
+				//console.log( google_data );
 				generate_matrix_table();
 				break;
 			case "shmd_google_preview":
@@ -136,7 +136,7 @@ jQuery(document).ready(function($)
 	});
 	document.addEventListener("shm_point_click", function( event ) 
 	{ 
-		console.log( event.detail ); 
+		//console.log( event.detail ); 
 	
 	});
 });

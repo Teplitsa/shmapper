@@ -66,9 +66,9 @@ class ShMapper_Assistants
 
 		//require_once( SHM_REAL_PATH .'assets/recaptcha-php-1.11/recaptchalib.php');			
 		// Register API keys at https://www.google.com/recaptcha/admin
-		$siteKey = ShMapper::$options['shm_captcha_siteKey'];
-		$secret = ShMapper::$options['shm_captcha_secretKey'];
-
+		$siteKey = isset( ShMapper::$options['shm_captcha_siteKey'] ) ? ShMapper::$options['shm_captcha_siteKey'] : '';
+		$secret = isset( ShMapper::$options['shm_captcha_secretKey'] ) ? ShMapper::$options['shm_captcha_secretKey'] : '';
+		
 		// reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
 		$html = '<div class="shm-form-element" id="grec">
 			<div class="g-recaptcha" data-sitekey="'.$siteKey.'"></div>

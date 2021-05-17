@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class ShMapperDriverPreview
 {
@@ -32,7 +32,7 @@ class ShMapperDriverPreview
 				}
 				$icon = ShMapPointType::get_icon($type, false, false);
 				$geocode = implode(" - " , static::getGeoPosition( $m ));
-				
+
 				if(ShMapperDrive::$options['is_google_post_date'])
 					$post_date	= strtotime( $m[ getSingleGoogleOrder(ShMapperDrive::$options['post_date']) ]);
 				else
@@ -121,7 +121,7 @@ class ShMapperDriverPreview
 					}					
 					$icon = ShMapPointType::get_icon($type, false, false);
 					
-					// post_date - 4					
+					// post_date - 4
 					if(ShMapperDrive::$options['is_google_post_date'])
 						$post_date	= strtotime( $m[ getSingleGoogleOrder(ShMapperDrive::$options['post_date']) ]);
 					else
@@ -147,13 +147,13 @@ class ShMapperDriverPreview
 					}
 					$post_title		= $m[ getSingleGoogleOrder(ShMapperDrive::$options['shmd_post_title']) ];
 					$post_content	= $m[ getSingleGoogleOrder(ShMapperDrive::$options['shmd_post_desc']) ];
-					//$post_content	= $cont ;
+
 					$point 			= ShMapperPointMessage::insert([
 						'post_name'    	=> $post_title,
 						'post_title'    => $post_title,
 						'post_content'  => $post_content,
-						'latitude'  	=> $geocode[1],
-						'longitude'  	=> $geocode[0], 
+						'latitude'  	=> str_replace( ',', '.', $geocode[1] ),
+						'longitude'  	=> str_replace( ',', '.', $geocode[0] ),
 						SHM_POINT		=> $copies[0],
 						"google_table_id"=> static::$google_table_id
 					]);
@@ -176,13 +176,12 @@ class ShMapperDriverPreview
 						$type 	= get_term( $nType, SHM_POINT_TYPE );
 					}					
 					$icon = ShMapPointType::get_icon($type, false, false);
-					
-					// post_date - 4					
+
+					// post_date - 4
 					if(ShMapperDrive::$options['is_google_post_date'])
 						$post_date	= strtotime( $m[ getSingleGoogleOrder(ShMapperDrive::$options['post_date']) ]);
 					else
 						$post_date	= time();
-					
 					$ii = 0;
 					foreach(ShMapperDrive::$options['google_matrix_data'] as $n)
 					{
@@ -203,13 +202,13 @@ class ShMapperDriverPreview
 					}
 					$post_title		= $m[ getSingleGoogleOrder(ShMapperDrive::$options['shmd_post_title']) ];
 					$post_content	= $m[ getSingleGoogleOrder(ShMapperDrive::$options['shmd_post_desc']) ];
-					//$post_content	= $cont;
+
 					$point 			= ShmPoint::insert([
 						'post_name'    	=> $post_title,
 						'post_title'    => $post_title,
 						'post_content'  => $post_content,
-						'latitude'  	=> $geocode[1],
-						'longitude'  	=> $geocode[0], 
+						'latitude'  	=> str_replace( ',', '.', $geocode[1] ),
+						'longitude'  	=> str_replace( ',', '.', $geocode[0] ),
 						"google_table_id"=> static::$google_table_id
 					]);
 					wp_set_object_terms( $point->id, [ $type->term_id ], SHM_POINT_TYPE );
@@ -222,14 +221,10 @@ class ShMapperDriverPreview
 			}
 			$i++;
 		}
-				
-		//var_dump($copies );
-		//wp_die();
-				
+
 	}
-	static function delete()
-	{
-		static::$google_table_id  		= ShMapperDrive::$options["google_table_id"];
+	static function delete() {
+		static::$google_table_id  = ShMapperDrive::$options["google_table_id"];
 		$posts = get_posts([
 			"numberposts"	=> -1,
 			"post_type"		=> [ ShmPoint::get_type(), ShMapperPointMessage::get_type() ],
@@ -243,9 +238,8 @@ class ShMapperDriverPreview
 					"compare" => "LIKE"
 				]
 			]
-		]);
-		//var_dump( $posts );
-		//wp_die();
+		] );
+
 		if( count($posts) > 0 )
 		{
 			foreach($posts as $postid)
@@ -254,15 +248,13 @@ class ShMapperDriverPreview
 			}
 		}
 	}
-	
-	static function getGeoPosition( $m )
-	{
-		switch( ShMapperDrive::$options['google_geo_position'])
-		{
+
+	static function getGeoPosition( $m ) {
+		switch( ShMapperDrive::$options['google_geo_position'] ) {
 			case 0:
 				return [
-					$m[ getSingleGoogleOrder( static::$options['google_geo_lon'] ) ],
-					$m[ getSingleGoogleOrder( static::$options['google_geo_lat'] ) ]
+					$m[ getSingleGoogleOrder( ShMapperDrive::$options['google_geo_lon'] ) ],
+					$m[ getSingleGoogleOrder( ShMapperDrive::$options['google_geo_lat'] ) ]
 				];
 			case 1:
 				$adress_identer		= ShMapperDrive::$options['google_geo_adress'];
@@ -272,8 +264,7 @@ class ShMapperDriverPreview
 				return [];
 		}
 	}
-	static function geocode($address)
-	{
+	static function geocode($address) {
 		//$address = "Москва, Тверская, 12";
 		$key = "921be5a4-36cd-4485-8f57-2c24f94dab32";
 		$yandex_key = "8202b217-b7c5-4c31-8abb-6030094cc780";
