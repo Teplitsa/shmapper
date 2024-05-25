@@ -44,10 +44,10 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 	/* ------------------------------------ */
 	public function update($new,$old) 
 	{
-		$instance = $old;
-		$instance['title'] = strip_tags($new['title']);
-		$instance['map_id'] = strip_tags($new['map_id']);
-		$instance['height'] = strip_tags($new['height']);
+		$instance           = $old;
+		$instance['title']  = wp_strip_all_tags( $new['title'] );
+		$instance['map_id'] = wp_strip_all_tags( $new['map_id'] );
+		$instance['height'] = wp_strip_all_tags( $new['height'] );
 		return $instance;
 	}
 	

@@ -1,5 +1,5 @@
 <html><body>
-<?
+<?php
 require_once ("recaptchalib.php");
 
 // get a key at http://www.google.com/recaptcha/mailhide/apikey

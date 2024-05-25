@@ -773,7 +773,7 @@ class ShMaperTrack extends SMC_Post
 		$gpx	 	= $node;
 		$gpx->addAttribute( "version", "1.0" );
 		$gpx->addAttribute( "creator", get_bloginfo("url") . " by ShmapperTrack for Wordpress" ); 
-		$time 		= $gpx->addChild( "time", date( "Y-m-d H:i:s" ) );
+		$time 		= $gpx->addChild( "time", gmdate( "Y-m-d H:i:s" ) );
 		
 		$metadata 	= $gpx->addChild( "metadata" );
 		$name		= $metadata->addChild( "name", $this->get("post_title") ); 

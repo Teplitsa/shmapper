@@ -425,7 +425,7 @@
 								echo esc_attr( $meta );
 								break;
 							case "date":
-								echo esc_attr( $meta ? date("d.m.Y   H:i", $meta) : "" );
+								echo esc_attr( $meta ? gmdate("d.m.Y   H:i", $meta) : "" );
 								break;
 							case "boolean":
 								echo $meta 
