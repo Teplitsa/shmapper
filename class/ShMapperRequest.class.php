@@ -387,7 +387,7 @@ class ShMapperRequest extends SMC_Post
 				$user_name = esc_html__( 'Visitor', 'shmapper-by-teplitsa' );
 			}
 			if ( $this->get_meta("notify_date") ) {
-				$html .= "<p>" . date("j.n.Y H:m", $this->get_meta("notify_date"));
+				$html .= "<p>" . gmdate("j.n.Y H:m", $this->get_meta("notify_date"));
 			}
 
 		}

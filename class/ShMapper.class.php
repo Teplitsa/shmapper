@@ -223,8 +223,9 @@ class ShMapper {
 		add_shortcode('shmMap',		'shmMap'); 
 	}
 	
-	static function add_admin_js_script()
+	static function add_admin_js_script( $hook )
 	{	
+
 		$locale = get_locale();
 		//css
 		wp_register_style("ShMapper", SHM_URLPATH . 'assets/css/ShMapper.css', array(), SHMAPPER_VERSION);
@@ -232,7 +233,7 @@ class ShMapper {
 		wp_register_style("ShMapper-admin", SHM_URLPATH . 'assets/css/ShMapper-admin.css', array(), SHMAPPER_VERSION);
 		wp_enqueue_style( "ShMapper-admin");
 		//js
-		wp_register_script("ShMapper", SHM_URLPATH . 'assets/js/ShMapper.js', array('inline-edit-post'), SHMAPPER_VERSION);
+		wp_register_script("ShMapper", SHM_URLPATH . 'assets/js/ShMapper.js', array(), SHMAPPER_VERSION, true);
 		wp_enqueue_script("ShMapper");
 		wp_enqueue_media();
 		wp_enqueue_style( 'wp-color-picker');
