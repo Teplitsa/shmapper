@@ -75,9 +75,9 @@ class ShMapTrackType
 		$new_columns = array
 		(
 			'cb'    => ' ',
-			'id'    => __('ID'),
-			'name'  => __('Name'),
-			'color' => __('Color', SHMAPPER)
+			'id'    => __('ID', 'shmapper-by-teplitsa'),
+			'name'  => __('Name', 'shmapper-by-teplitsa'),
+			'color' => __('Color', 'shmapper-by-teplitsa')
 		);
 		return $new_columns;
 	}

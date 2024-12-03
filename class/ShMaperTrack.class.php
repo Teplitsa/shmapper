@@ -223,7 +223,7 @@ class ShMaperTrack extends SMC_Post
 						if ( isset( $m[2] ) ) {
 							$m2 = $m[2];
 						}
-						$mm[] 	= "[" . $m[0] . "," . $m[1] . "," . json_encode( $m2 ) ."]";
+						$mm[] 	= "[" . $m[0] . "," . $m[1] . "," . wp_json_encode( $m2 ) ."]";
 					}
 				}
 				
@@ -370,7 +370,7 @@ class ShMaperTrack extends SMC_Post
 					if ( isset( $m[2] ) ) {
 						$m2 = $m[2];
 					}
-					$mm[] 	= "[" . $m[0] . "," . $m[1] . "," . json_encode( $m2 ) . "]";
+					$mm[] 	= "[" . $m[0] . "," . $m[1] . "," . wp_json_encode( $m2 ) . "]";
 				}
 			}
 			$points = ShMapperTracksPoint::get_all([ static::get_type() => $obj->id]);
@@ -494,7 +494,7 @@ class ShMaperTrack extends SMC_Post
 				}
 				$full_track		= urldecode( stripslashes($data["elem"][$key]) );
 				$track_data 	= json_decode( $full_track );
-				$track 			= json_encode( $track_data->coords, true );
+				$track 			= wp_json_encode( $track_data->coords, true );
 				$markers 		= $track_data->markers;
 				
 				$imgg = false;

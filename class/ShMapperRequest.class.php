@@ -69,7 +69,7 @@ class ShMapperRequest extends SMC_Post
 					$new[$key] = __("Approving", SHMAPPER);
 					break;
 				case "session":
-					$new["session"] = __("Author");
+					$new["session"] = __("Author", "shmapper-by-teplitsa");
 					break;
 				case "latitude":
 					$new["location"] = __("GEO location", SHMAPPER);
@@ -86,11 +86,11 @@ class ShMapperRequest extends SMC_Post
 		switch($column_name)
 		{
 			case "location":
-				echo __("Latitude", SHMAPPER).": <strong>" . $obj->get_meta("latitude") ."</strong>".
+				echo esc_html__("Latitude", SHMAPPER).": <strong>" . $obj->get_meta("latitude") ."</strong>".
 				"<br>".
-				 __("Longitude", SHMAPPER).": <strong>" . $obj->get_meta("longitude") ."</strong>".
+				 esc_html__("Longitude", SHMAPPER).": <strong>" . $obj->get_meta("longitude") ."</strong>".
 				"<br>".
-				 __("Location", SHMAPPER).": <strong>" . $obj->get_meta("location") ."</strong>";
+				 esc_html__("Location", SHMAPPER).": <strong>" . $obj->get_meta("location") ."</strong>";
 				break;
 			case "session":
 				$contacts = $obj->get_meta("contacts");
@@ -128,18 +128,16 @@ class ShMapperRequest extends SMC_Post
 	static function view_admin_edit($obj)
 	{
 
-	    require_once(SHM_REAL_PATH."class/SMC_Object_type.php");
+		require_once(SHM_REAL_PATH."class/SMC_Object_type.php");
 
-		$SMC_Object_type	= SMC_Object_Type::get_instance();
-		$bb				= $SMC_Object_type->object [forward_static_call_array( array( get_called_class(),"get_type"), array()) ];
-        $html = '';
+		$SMC_Object_type = SMC_Object_Type::get_instance();
+		$bb              = $SMC_Object_type->object [forward_static_call_array( array( get_called_class(),"get_type"), array()) ];
+		$html            = '';
 
 		foreach($bb as $key => $value)
 		{
 			if($key == 't' || $key == 'class' || $key == 'contacts' || $key == 'notify_user' ) continue;
 			$meta = get_post_meta( $obj->id, $key, true);
-
-//			$$key = $meta;
 
 			switch( $value['type'] )
 			{
@@ -204,7 +202,7 @@ class ShMapperRequest extends SMC_Post
 			if($key == "notified" && $_POST[$key] != 1)
 				$arr[$key] = -1;
 			else
-			    $arr[$key] = sanitize_text_field($_POST[$key]);
+				$arr[$key] = sanitize_text_field($_POST[$key]);
 		}
 		
 		return $arr;
@@ -222,15 +220,15 @@ class ShMapperRequest extends SMC_Post
 
 		if( $data['shm_form_name'] )
 		{
-		    $contacts[] = sanitize_text_field($data['shm_form_name']);
-		    $author		= sanitize_text_field($data['shm_form_name']);
+			$contacts[] = sanitize_text_field($data['shm_form_name']);
+			$author		= sanitize_text_field($data['shm_form_name']);
 		}
 		if( $data['shm_form_phone'] )
-		    $contacts[] = sanitize_text_field($data['shm_form_phone']);
+			$contacts[] = sanitize_text_field($data['shm_form_phone']);
 		if( $data['shm_form_email'])
 		{
-		    $contacts[] = sanitize_email($data['shm_form_email']);
-		    $emails[] 	= sanitize_email($data['shm_form_email']);
+			$contacts[] = sanitize_email($data['shm_form_email']);
+			$emails[] 	= sanitize_email($data['shm_form_email']);
 		}
 		foreach($form as $key => $val)
 		{
@@ -238,16 +236,16 @@ class ShMapperRequest extends SMC_Post
 				continue;
 			if($val['type'] == SHMAPPER_EMAIL_TYPE_ID)
 			{
-			    $emails[] 	= sanitize_email($data['elem'][$key]);
-			    $contacts[] = sanitize_email($data['elem'][$key]);					
+				$emails[] 	= sanitize_email($data['elem'][$key]);
+				$contacts[] = sanitize_email($data['elem'][$key]);					
 			}	
 			if(
 				$val['type'] == SHMAPPER_PHONE_TYPE_ID ||
 				$val['type'] == SHMAPPER_NAME_TYPE_ID 
 			)
-			    $contacts[] = sanitize_text_field($data['elem'][$key]);
+				$contacts[] = sanitize_text_field($data['elem'][$key]);
 			if($val['type'] == SHMAPPER_NAME_TYPE_ID)
-			    $author		= sanitize_text_field($data['elem'][$key]);
+				$author		= sanitize_text_field($data['elem'][$key]);
 			if($val['type'] == SHMAPPER_TEXTAREA_TYPE_ID)
 			{
 				$description .= $data['elem'][$key];

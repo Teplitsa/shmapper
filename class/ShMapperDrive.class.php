@@ -445,7 +445,7 @@ class ShMapperDrive
 									id='shmd_settings_wizzard' 
 								>
 									<div class='button' id='shmd_settings_open'>" . 
-										__( "Settings" ) . 
+										__( "Settings", "shmapper-by-teplitsa" ) . 
 									"</div>
 									<div class='button' id='shmd_google_preview'>" . 
 										__("Preview results", SHMAPPER) . 

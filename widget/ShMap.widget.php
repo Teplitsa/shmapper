@@ -66,11 +66,11 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 		<div class="shm-row">
 			<div class="shm-12">
 				<p>
-					<label for="<?php echo $instance['title']; ?>"><?php _e("Tite"); ?></label>
-					<input class="widefat" id="<?php $instance['title']; ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance["title"]); ?>" />
-				</p>				
+					<label for="<?php echo esc_attr( $instance['title'] ); ?>"><?php esc_html_e("Tite", "shmapper-by-teplitsa"); ?></label>
+					<input class="widefat" id="<?php echo esc_attr( $instance['title'] ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr( $instance["title"] ); ?>" />
+				</p>
 				<p>
-					<label for="<?php echo $instance['map_id']; ?>"><?php _e("Map", SHMAPPER); ?></label>
+					<label for="<?php echo esc_attr( $instance['map_id'] ); ?>"><?php esc_html_e("Map", SHMAPPER); ?></label>
 					<?php
 						echo ShmMap::wp_dropdown([
 							"class" 	=> "shm-form",
@@ -80,11 +80,11 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 							"posts"		=> ShmMap::get_all(),
 						]);
 					?>
-				</p>					
+				</p>
 				<p>
-					<label for="<?php echo $instance['height']; ?>"><?php _e("Height", SHMAPPER); ?></label>
-					<input type='number' class="shm-form" id="<?php $instance['height']; ?>" name="<?php echo $this->get_field_name('height'); ?>" type="text" value="<?php echo esc_attr($instance["height"]); ?>" />
-				</p>		
+					<label for="<?php echo esc_attr( $instance['height'] ); ?>"><?php esc_html_e("Height", SHMAPPER); ?></label>
+					<input type='number' class="shm-form" id="<?php echo esc_attr( $instance['height'] ); ?>" name="<?php echo esc_attr( $this->get_field_name('height') ); ?>" type="text" value="<?php echo esc_attr($instance["height"]); ?>" />
+				</p>
 			</div>
 		</div>
 		<?php

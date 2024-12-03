@@ -122,7 +122,7 @@ class ShMapperDrive_ajax
 					];
 				}
 		}
-		$d_obj		= json_encode( apply_filters( "shm_ajax_data", $d, $params ) );				
+		$d_obj		= wp_json_encode( apply_filters( "shm_ajax_data", $d, $params ) );				
 		print $d_obj;
 		wp_die();
 	}

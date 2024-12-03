@@ -111,9 +111,9 @@ class ShMapperTracks
 				"Empty vertex" => __( "Empty vertex", SHMAPPER_TRACKS ),
 				"Edit vertex" => __( "Edit vertex", SHMAPPER_TRACKS ),
 				"Update vertex" => __( "Update vertex", SHMAPPER_TRACKS ),
-				"Title" => __( "Title" ),
-				"Content" => __( "Content" ),
-				"Type" => __( "Type" ),
+				"Title" => __( "Title", "shmapper-by-teplitsa" ),
+				"Content" => __( "Content", "shmapper-by-teplitsa" ),
+				"Type" => __( "Type", "shmapper-by-teplitsa" ),
 				"Update new track" => __( "Update new track", SHMAPPER_TRACKS ),
 			]
 		);

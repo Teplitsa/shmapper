@@ -15,7 +15,7 @@ function shm_block_categories_all( $block_categories ) {
 	array_push( $block_categories,
 		array(
 			'slug'  => 'shmapper',
-			'title' => esc_html__( 'ShMapper', 'shmapper' ),
+			'title' => esc_html__( 'ShMapper', 'shmapper-by-teplitsa' ),
 		)
 	);
 

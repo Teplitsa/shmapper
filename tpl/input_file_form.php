@@ -77,7 +77,7 @@ function get_input_file_form3($image_input_name = "image-file")
 					<!-- The file is stored here. -->
 					<input type="file" name="' . $image_input_name . '">
 				</label>
-				<button type="button" class="btn btn-default">' . __( 'Remove' ) . '</button>
+				<button type="button" class="btn btn-default">' . __( 'Remove', 'shmapper-by-teplitsa' ) . '</button>
 				<button type="button" class="btn btn-default">' . __( 'Insert', 'shmapper-by-teplitsa' ) . '</button>
 			</div>
 			<div class="url-tab panel-body">
@@ -87,7 +87,7 @@ function get_input_file_form3($image_input_name = "image-file")
 						<button type="button" class="btn btn-default">' . __( 'Submit', 'shmapper-by-teplitsa' ) . '</button>
 					</div>
 				</div>
-				<button type="button" class="btn btn-default ">' . __( 'Remove' ).'</button>
+				<button type="button" class="btn btn-default ">' . __( 'Remove', 'shmapper-by-teplitsa' ).'</button>
 				<!-- The URL is stored here. -->
 				<input type="hidden" name="image-url">
 			</div>

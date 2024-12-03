@@ -156,75 +156,74 @@ class ShMapper {
 		$map['zoom']				= ['type'=>'number', "distination" => "map", "name" => __("Zoom", SHMAPPER)];
 		$map['is_legend']			= ['type'=>'boolean', "distination" => "map", "name" => __("Legend exists", SHMAPPER)];
 		$map['is_filtered']			= ['type'=>'boolean', "distination" => "map", "name" => __("Filters exists", SHMAPPER)];
-		$map['is_csv']				= ['type'=>'boolean', "distination" => "map", "name" => __("Export csv", SHMAPPER)];	
-		$map['width']				= ['type'=>'number', "distination" => "map", "name" => __("Width")];	
-		$map['height']				= ['type'=>'number', "distination" => "map", "name" => __("Height")];	
-		$map['is_search']			= ['type'=>'boolean', "distination" => "map", "name" => __("Map search", SHMAPPER)];	
-		$map['is_fullscreen']		= ['type'=>'boolean', "distination" => "map", "name" => __("Map full screen", SHMAPPER)];	
-		$map['is_zoomer']			= ['type'=>'boolean', "distination" => "map", "name" => __("Map zoom slider", SHMAPPER)];	
-		$map['is_layer_switcher']	= ['type'=>'boolean',"distination"=>"map","name"=>__("Map layer switcher",SHMAPPER)];	
+		$map['is_csv']				= ['type'=>'boolean', "distination" => "map", "name" => __("Export csv", SHMAPPER)];
+		$map['width']				= ['type'=>'number', "distination" => "map", "name" => __("Width", "shmapper-by-teplitsa")];
+		$map['height']				= ['type'=>'number', "distination" => "map", "name" => __("Height", "shmapper-by-teplitsa")];
+		$map['is_search']			= ['type'=>'boolean', "distination" => "map", "name" => __("Map search", SHMAPPER)];
+		$map['is_fullscreen']		= ['type'=>'boolean', "distination" => "map", "name" => __("Map full screen", SHMAPPER)];
+		$map['is_zoomer']			= ['type'=>'boolean', "distination" => "map", "name" => __("Map zoom slider", SHMAPPER)];
+		$map['is_layer_switcher']	= ['type'=>'boolean',"distination"=>"map","name"=>__("Map layer switcher",SHMAPPER)];
 		$map['is_lock']				= ['type'=>'boolean',"distination"=>"map","name"=>__("Lock zoom and drag",SHMAPPER)];
 
 		$map['is_scroll_zoom']		= ['type'=>'boolean',"distination"=>"map","name"=>__("Disable scroll zoom",SHMAPPER)];
 		$map['is_drag']				= ['type'=>'boolean',"distination"=>"map","name"=>__("Disable dragging",SHMAPPER)];
 
-		$map['is_clustered']		= ['type'=>'boolean',"distination"=>"map","name"=>__("Formating Marker to cluster", SHMAPPER)];	
-		$map['default_icon_id']		= ['type'=>'boolean',"distination"=>"map","name"=>__("Default Marker icon", SHMAPPER)];	
+		$map['is_clustered']		= ['type'=>'boolean',"distination"=>"map","name"=>__("Formating Marker to cluster", SHMAPPER)];
+		$map['default_icon_id']		= ['type'=>'boolean',"distination"=>"map","name"=>__("Default Marker icon", SHMAPPER)];
 		
 		$map['is_form']				= ['type'=>'boolean', "distination" => "form", "name" => __("Form exists", SHMAPPER)];
 		$map['notify_owner']		= ['type'=>'boolean', "distination" => "form", "name" => __("Notify owner of Map", SHMAPPER)];
 		$map['form_title']			= ['type'=>'string',  "distination" => "form", "name" => __("Form Title", SHMAPPER)];
 		$map['form_forms']			= ['type'=>'form_editor',  "distination" => "form", "name" => __("Form generator", SHMAPPER)];
 		$map['is_personal_data']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Users can leave their contact details for feedback.", SHMAPPER)];		
-		$map['is_name_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal name", SHMAPPER)];		
-		$map['personal_name']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal name", SHMAPPER)];		
-		$map['is_name_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal name", SHMAPPER)];		
-		$map['is_email_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal e-mail",SHMAPPER)];		
-		$map['personal_email']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal e-mail", SHMAPPER)];		
-		$map['is_email_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal e-mail", SHMAPPER)];		
-		$map['is_phone_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal phone", SHMAPPER)];		
-		$map['personal_phone']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal phone", SHMAPPER)];		
-		$map['is_phone_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal phone", SHMAPPER)];	
+		$map['is_name_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal name", SHMAPPER)];
+		$map['personal_name']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal name", SHMAPPER)];
+		$map['is_name_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal name", SHMAPPER)];
+		$map['is_email_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal e-mail",SHMAPPER)];
+		$map['personal_email']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal e-mail", SHMAPPER)];
+		$map['is_email_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal e-mail", SHMAPPER)];
+		$map['is_phone_iclude']		= ['type'=>'boolean',  "distination" => "form", "name" => __("Unclude Personal phone", SHMAPPER)];
+		$map['personal_phone']		= ['type'=>'string',  "distination" => "form", "name" => __("Personal phone", SHMAPPER)];
+		$map['is_phone_required']	= ['type'=>'boolean',  "distination" => "form", "name" => __("Required Personal phone", SHMAPPER)];
 		$init_object[SHM_MAP]		= $map;
-		
-		
+
 		$req						= [];
 		$req['t']					= ['type' => 'post'];
 		$req['class']				= ['type' => 'ShMapperRequest'];
-		$req['map']					= ['type' => 'post', "object" => SHM_REQUEST, "color"=> "#5880a2", "name" => __("Map", SHMAPPER)];	
-		$req['title']				= ['type' => 'string', "name" => __("Title")];	
-		$req['description']			= ['type' => 'string', "name" => __("Description", SHMAPPER)];	
-		$req['latitude']			= ['type' => 'string', "name" => __("Latitude", SHMAPPER)];	
+		$req['map']					= ['type' => 'post', "object" => SHM_REQUEST, "color"=> "#5880a2", "name" => __("Map", SHMAPPER)];
+		$req['title']				= ['type' => 'string', "name" => __("Title", "shmapper-by-teplitsa")];
+		$req['description']			= ['type' => 'string', "name" => __("Description", SHMAPPER)];
+		$req['latitude']			= ['type' => 'string', "name" => __("Latitude", SHMAPPER)];
 		$req['longitude']			= ['type' => 'string', "name" => __("Longitude", SHMAPPER)];
 		$req['location']			= ['type' => 'string', "name" => __("Location", SHMAPPER)];
 		$req['type']				= ['type' => 'taxonomy', "object" => SHM_POINT_TYPE, "name" => __("Type", SHMAPPER)];
 		$req['session']				= ['type' => 'id', "object" => "session", "name" => __("Session", SHMAPPER)];
-		$req['author']				= ['type' => 'string', "name" => __("Author")];
+		$req['author']				= ['type' => 'string', "name" => __("Author", "shmapper-by-teplitsa")];
 		$req['contacts']			= ['type' => 'array', "name" => __("Contacts", SHMAPPER)];
 		$req['notified']			= ['type' => 'boolean', "name" => __("Aproved", SHMAPPER)];
-		$req['notify_date']			= ['type' => 'number', "name" => __("Aprove date", SHMAPPER)];	
-		$req['notify_user']			= ['type' => 'id', "object" => "user", "name" => __("Accessed User", SHMAPPER)];	
+		$req['notify_date']			= ['type' => 'number', "name" => __("Aprove date", SHMAPPER)];
+		$req['notify_user']			= ['type' => 'id', "object" => "user", "name" => __("Accessed User", SHMAPPER)];
 		$init_object[SHM_REQUEST]	= $req;
 		
 		
 		$point						= [];
-		$point['t']					= ['type' => 'taxonomy'];	
-		$point['class']				= ['type' => 'ShMapPointType']; 
-		$point['color']				= ['type' => 'color', "name" => __("Color", SHMAPPER)];	
+		$point['t']					= ['type' => 'taxonomy'];
+		$point['class']				= ['type' => 'ShMapPointType'];
+		$point['color']				= ['type' => 'color', "name" => __("Color", SHMAPPER)];
 		$init_object[ SHM_POINT_TYPE ]		= $point;
-	
+
 		return $init_object;
-		
+
 	}
-	
+
 	static function add_shortcodes()
-	{		
+	{
 		require_once(SHM_REAL_PATH.'shortcode/shmMap.shortcode.php');
-		add_shortcode('shmMap',		'shmMap'); 
+		add_shortcode('shmMap', 'shmMap'); 
 	}
 	
 	static function add_admin_js_script( $hook )
-	{	
+	{
 
 		$locale = get_locale();
 		//css
@@ -306,18 +305,18 @@ class ShMapper {
 			array(
 				'url' => admin_url('admin-ajax.php')
 			)
-		);	
+		);
 		
 		wp_localize_script( 'ShMapper', 'shm_maps', array() );
-		wp_localize_script( 
-			'ShMapper', 
-			'voc', 
+		wp_localize_script(
+			'ShMapper',
+			'voc',
 			apply_filters(
 				"shm_voc",
 				[
 					'Attantion' => __( "Attantion", SHMAPPER ),
-					'Send' => __( "Send" ),
-					'Close' => __( "Close" ),
+					'Send' => __( "Send", "shmapper-by-teplitsa" ),
+					'Close' => __( "Close", "shmapper-by-teplitsa" ),
 					'Error: no map' => __( "Error: the form is not associated with the card. To link a map and a form, there should be 2 shortcodes on one page (map - [shmMap id = '6' map = 'true' uniq = 'for example, 777'] and form - [shmMap id = '94' form = 'true' uniq = 'for example, 777']), in which the uniq parameter will match", SHMAPPER ),
 					'Are you shure?' => __( "Are you shure?", SHMAPPER ),
 				]
@@ -436,8 +435,8 @@ class ShMapper {
 				"shm_voc", 
 				[					
 					'Attantion'		=> __( "Attantion", SHMAPPER ),
-					'Send' 			=> __( "Send" ),
-					'Close' 		=> __( "Close" ),
+					'Send' 			=> __( "Send", "shmapper-by-teplitsa" ),
+					'Close' 		=> __( "Close", "shmapper-by-teplitsa" ),
 					'Error: no map' => __( "Error: the form is not associated with the card. To link a map and a form, there should be 2 shortcodes on one page (map - [shmMap id = '6' map = 'true' uniq = 'for example, 777'] and form - [shmMap id = '94' form = 'true' uniq = 'for example, 777']), in which the uniq parameter will match", SHMAPPER ),
 				]
 			)
@@ -487,8 +486,8 @@ class ShMapper {
 	{
 		add_submenu_page(
 			'shm_page',
-			__("Settings"),
-			__("Settings"),
+			__("Settings", "shmapper-by-teplitsa"),
+			__("Settings", "shmapper-by-teplitsa"),
 			'edit_others_posts',
 			'shm_settings_page',
 			[ __CLASS__, 'setting_pages' ]
@@ -535,7 +534,7 @@ class ShMapper {
 				<div class='shm-12'>
 					<div class='shm_logo'></div>
 					<h1 class='wp-heading-inline shm-color-grey shm_no_margin'>".
-						__("Settings") .
+						esc_html__("Settings", "shmapper-by-teplitsa") .
 					"</h1>
 				</div>
 			</div>
@@ -567,9 +566,9 @@ class ShMapper {
 							<div class='shm-row' id='shm_settings_yandex_map_api_key_cont'>
 								<div class='shm-9'>
 									<p>
-										<div><small class='shm-color-grey'>" . __("Yandex.Maps API Key", SHMAPPER)."</small></div>
+										<div><small class='shm-color-grey'>" . esc_html__("Yandex.Maps API Key", SHMAPPER)."</small></div>
 										<input class='sh-form' name='shm_yandex_maps_api_key' value='".(empty(static::$options['shm_yandex_maps_api_key']) ? '' : static::$options['shm_yandex_maps_api_key']). "' />
-										<span class='shm-color-alert'><small>".__("ATTENTION: you must specify a key for working with the Yandex.Maps API.", SHMAPPER)."<br />".__("Learn more here:", SHMAPPER)." <a href='https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/' target='_blank'>https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/</a></small></span>
+										<span class='shm-color-alert'><small>".esc_html__("ATTENTION: you must specify a key for working with the Yandex.Maps API.", SHMAPPER)."<br />".__("Learn more here:", SHMAPPER)." <a href='https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/' target='_blank'>https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/</a></small></span>
 									<p>
 								</div>	
 							</div>
@@ -580,7 +579,7 @@ class ShMapper {
 				<li>
 					<div class='shm-row' id='shm_map_is_crowdsourced_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3'>".
-							__("Interactive", SHMAPPER) .
+							esc_html__("Interactive", SHMAPPER) .
 						"</div>
 						<div class='shm-9'>
 							<p>
@@ -588,7 +587,7 @@ class ShMapper {
 									checked(1, (int)static::$options['shm_map_is_crowdsourced'], 0) . 
 								"/>
 								<label for='shm_map_is_crowdsourced'>".
-									__("Enable global mode for non-interactive maps", SHMAPPER) .
+									esc_html__("Enable global mode for non-interactive maps", SHMAPPER) .
 								"</label> 
 								<br>
 								<span class='shm-color-grey'><small>".
@@ -604,11 +603,11 @@ class ShMapper {
 								"</label> 
 								<br>
 								<span class='shm-color-grey'><small>".
-									__("all messages will be added in the Draft status", SHMAPPER). 
+									esc_html__("all messages will be added in the Draft status", SHMAPPER). 
 								"</small></span>
 								<br>
 								<span class='shm-color-alert'><small>". 
-										__("ATTENTION: disable this option only at your own peril and risk, because there is a threat of spam attacks", SHMAPPER). 
+										esc_html__("ATTENTION: disable this option only at your own peril and risk, because there is a threat of spam attacks", SHMAPPER). 
 								"</small></span>
 							</p>
 							<p>
@@ -616,7 +615,7 @@ class ShMapper {
 									checked(1, (int)static::$options['shm_reload'], 0) . 
 								"/>
 								<label for='shm_reload'>".
-									__("Reload page after User send request.", SHMAPPER) .
+									esc_html__("Reload page after User send request.", SHMAPPER) .
 								"</label> 
 							</p>
 						</div>	
@@ -628,14 +627,14 @@ class ShMapper {
 				<li>
 					<div class='shm-row' id='shm_settings_captcha_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3'>".
-							__("Protection", SHMAPPER) .
+							esc_html__("Protection", SHMAPPER) .
 						"</div>
 						<div class='shm-9'>
 							<input type='checkbox' class='checkbox' value='1' id='shm_settings_captcha' " . 
 								checked(1, empty(static::$options['shm_settings_captcha']) ? 0 : (int)static::$options['shm_settings_captcha'], 0) . 
 							"/>
 							<label for='shm_settings_captcha'>".
-								__("Include captcha in form (plugin uses only reCAPTCHA v2 keys)", SHMAPPER) .
+								esc_html__("Include captcha in form (plugin uses only reCAPTCHA v2 keys)", SHMAPPER) .
 							"</label> 
 							<p>
 							<div><small class='shm-color-grey'>Google reCAPTCHA site key</small></div>
@@ -648,7 +647,7 @@ class ShMapper {
 							"</small>
 							<div class='" . (empty(static::$options['shm_captcha_siteKey']) || empty(static::$options['shm_captcha_secretKey']) ? "" : "_hidden") . "'>
 								<small class='shm-color-danger' id='recaptcha_danger'>".
-									__("Your reCAPTCHA doesn't work yet. In order to make it work, please get the API keys at google.com/recaptcha", SHMAPPER).
+									esc_html__("Your reCAPTCHA doesn't work yet. In order to make it work, please get the API keys at google.com/recaptcha", SHMAPPER).
 								"</small>
 							</div>
 						</div>	
@@ -660,7 +659,7 @@ class ShMapper {
 				<li>
 					<div class='shm-row' id='shm_vocabulary_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3 '>".
-							__("Vocabulary", SHMAPPER) .
+							esc_html__("Vocabulary", SHMAPPER) .
 						"</div>
 						<div class='shm-9' id='shm_voc'>
 							$vocabulary
@@ -801,10 +800,10 @@ class ShMapper {
 				<li>
 					<div class='shm-row' id='shm_vocabulary_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3 '>".
-							__("Wizzard", SHMAPPER) .
+							esc_html__("Wizzard", SHMAPPER) .
 						"</div>
 						<div class='shm-9' id='shm_voc'>
-							<div class='button' id='shm_settings_wizzard' >" . __("Restart wizzard", SHMAPPER) . "</div>
+							<div class='button' id='shm_settings_wizzard' >" . esc_html__("Restart wizzard", SHMAPPER) . "</div>
 						</div>
 						<div class='shm-1'></div>
 					</div
@@ -853,15 +852,15 @@ class ShMapper {
 				$text
 			</div>
 			<div class='shm_wizzard_footer'>
-				<a name='shm_wclose'>" . __("Close wizzard", SHMAPPER) . "</a>
-				<a name='shm_wcurrent'>" . __("Go to current page", SHMAPPER) . "</a>".
+				<a name='shm_wclose'>" . esc_html__("Close wizzard", SHMAPPER) . "</a>
+				<a name='shm_wcurrent'>" . esc_html__("Go to current page", SHMAPPER) . "</a>".
 				(
 					$alt_selector ? "" : 
-					"<a class='dashicons dashicons-controls-play' title='" . __("Next step", SHMAPPER) . "' name='shm_wnext'></a>"
+					"<a class='dashicons dashicons-controls-play' title='" . esc_attr__("Next step", SHMAPPER) . "' name='shm_wnext'></a>"
 				).
-				"<!--a class='dashicons dashicons-controls-back' title='" . __("Prevous step", SHMAPPER) . "'></a>
-				<a class='dashicons dashicons-edit' title='" . __("Go to current page", SHMAPPER) . "'></a>
-				<a class='dashicons dashicons-no' title='" . __("Close wizzard", SHMAPPER) . "' name='shm_wclose'></a-->
+				"<!--a class='dashicons dashicons-controls-back' title='" . esc_attr__("Prevous step", SHMAPPER) . "'></a>
+				<a class='dashicons dashicons-edit' title='" . esc_attr__("Go to current page", SHMAPPER) . "'></a>
+				<a class='dashicons dashicons-no' title='" . esc_attr__("Close wizzard", SHMAPPER) . "' name='shm_wclose'></a-->
 			</div>
 		</div>
 		<div class='shm_wizzard_closed' id='shm_wizzard_closed' onclick='shm_show_wizz()'>

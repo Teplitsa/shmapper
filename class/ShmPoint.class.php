@@ -248,10 +248,10 @@ class ShmPoint extends SMC_Post
 		unset( $columns['latitude'] );
 		unset( $columns['longitude'] );
 		unset( $columns['approved'] );
-		$columns = array_slice($columns, 0, 1, true) + ["ids"=>__("ID"), 'type' => __("Type")] + array_slice($columns, 1, count($columns) - 1, true) ;
-		$columns['location'] 	= __("GEO location", SHMAPPER);
-		$columns['thumb'] 		= "<div class='shm-camera' title='" . __("Image", SHMAPPER) ."'></div>";
-		$columns['owner_map'] 	= __("Usage in Maps: ", SHMAPPER);
+		$columns = array_slice($columns, 0, 1, true) + ["ids"=>__("ID", "shmapper-by-teplitsa"), 'type' => __("Type", "shmapper-by-teplitsa")] + array_slice($columns, 1, count($columns) - 1, true) ;
+		$columns['location'] 	= __("GEO location", "shmapper-by-teplitsa");
+		$columns['thumb'] 		= "<div class='shm-camera' title='" . __("Image", "shmapper-by-teplitsa") ."'></div>";
+		$columns['owner_map'] 	= __("Usage in Maps: ", "shmapper-by-teplitsa");
 		return $columns;	
 	}
 	static function fill_views_column($column_name, $post_id) 
@@ -321,19 +321,19 @@ class ShmPoint extends SMC_Post
 			<input type='hidden' name='shm_y' value='".$data[2]."' />
 			<input type='hidden' name='shm_loc' value='".$data[3]."' />
 			<div class='shm-12'>
-				<label>" . __("Title") . "</label>
+				<label>" . __("Title", "shmapper-by-teplitsa") . "</label>
 				<input class='shm-form shm-title-4' name='shm-new-point-title' onclick='this.classList.remove(\"shm-alert\");' />
 			</div>
 			<div class='shm-12'>
-				<label>" . __("Description") . "</label>
+				<label>" . __("Description", "shmapper-by-teplitsa") . "</label>
 				<textarea class='shm-form' rows='4' name='shm-new-point-content' onclick='this.classList.remove(\"shm-alert\");'></textarea>
 			</div>
 			<div class='shm-12' onclick='this.classList.remove(\"shm-alert\");'>
-				<label>" . __("Type", SHMAPPER) . "</label>".
+				<label>" . __("Type", "shmapper-by-teplitsa") . "</label>".
 				ShMapPointType::get_ganre_swicher( ["name"=>"shm-new-point-type", "prefix" => "shm-new-type"],  "radio" ).
 			"</div>
 			<div class='shm-12'>
-				<label>" . __("Address", SHMAPPER) . "</label>
+				<label>" . __("Address", "shmapper-by-teplitsa") . "</label>
 				<input class='shm-form shm-title-4' name='shm-new-point-location' onclick='this.classList.remove(\"shm-alert\");' value='".$data[3]."'/>
 			</div>
 		</div>

@@ -102,7 +102,7 @@ class ShMapper_ajax
 			"grec"			=> $grec,
 			'grecaptcha'	=> ShMapper::$options['shm_settings_captcha']
 		];
-		wp_die( json_encode( $answer ) );
+		wp_die( wp_json_encode( $answer ) );
 	}
 	static function ajax_submit()
 	{
@@ -119,7 +119,7 @@ class ShMapper_ajax
 					'log'	=> $ex->getTrace ()
 				)
 			];
-			$d_obj		= json_encode( $d );
+			$d_obj		= wp_json_encode( $d );
 			echo wp_kses_post( $d_obj );
 			wp_die();
 		}
@@ -516,7 +516,7 @@ class ShMapper_ajax
 				do_action("shm_ajax_submit", $params);
 				break;
 		}
-		$d_obj		= json_encode(apply_filters("shm_ajax_data", $d, $params));	
+		$d_obj		= wp_json_encode(apply_filters("shm_ajax_data", $d, $params));	
 		print $d_obj;
 		wp_die();
 	}

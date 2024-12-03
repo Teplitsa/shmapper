@@ -88,8 +88,8 @@ class ShMapPointType
 		(
 			'cb' 			=> ' ',
 			'id' 			=> 'id',
-			'name' 			=> __('Name'),
-			'icon' 			=> __('Icon', SHMAPPER)
+			'name' 			=> __('Name', 'shmapper-by-teplitsa'),
+			'icon' 			=> __('Icon', 'shmapper-by-teplitsa')
 		);
 		return $new_columns;
 	}

@@ -604,13 +604,13 @@
 								case "boolean":
 									echo "
 									<input type='radio' name='$column_name' value='-1' class='smc_post_changer' id='__$column_name'/> 
-									<label for='__$column_name' class='shm-inline'>" . __("&mdash; No Change &mdash;") . "</label>
+									<label for='__$column_name' class='shm-inline'>" . __("&mdash; No Change &mdash;", "shmapper-by-teplitsa") . "</label>
 									
 									<input type='radio' name='$column_name' value='0' class='smc_post_changer' id='no$column_name'/> 
-									<label for='no$column_name' class='shm-inline'>" . __("No") . "</label>
+									<label for='no$column_name' class='shm-inline'>" . __("No", "shmapper-by-teplitsa") . "</label>
 									
 									<input type='radio' name='$column_name' value='1' class='smc_post_changer' id='yes$column_name'/> 
-									<label for='yes$column_name' class='shm-inline'>" . __("Yes") . "</label>";
+									<label for='yes$column_name' class='shm-inline'>" . __("Yes", "shmapper-by-teplitsa") . "</label>";
 									break;
 								case "media":
 								

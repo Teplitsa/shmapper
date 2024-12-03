@@ -105,8 +105,8 @@ class ShmMap extends SMC_Post
 	static function add_views_column( $columns )
 	{
 		$_columns["cb"]				= " ";
-		$_columns['ids']			= __("ID", SHMAPPER );
-		$_columns['title']			= __("Title" );
+		$_columns['ids']			= __("ID", "shmapper-by-teplitsa");
+		$_columns['title']			= __("Title", "shmapper-by-teplitsa");
 		$_columns['is_csv']	= "
 		<span 
 			class='dashicons dashicons-editor-justify shm-notify' 
@@ -127,9 +127,9 @@ class ShmMap extends SMC_Post
 			class='dashicons dashicons-megaphone shm-notify' 
 			title='" . __("Notify owner of Map", SHMAPPER)."' data-title='" . __("Notify owner of Map", SHMAPPER)."'>
 		</span>";
-		$_columns['shortcodes']		= __("shortcodes", SHMAPPER);
-		$_columns['placemarks']		= __("Map markers", SHMAPPER);
-		$_columns['author']			= __("Author");
+		$_columns['shortcodes']		= __("shortcodes", "shmapper-by-teplitsa");
+		$_columns['placemarks']		= __("Map markers", "shmapper-by-teplitsa");
+		$_columns['author']			= __("Author", "shmapper-by-teplitsa");
 		return $_columns;
 	}
 	
@@ -265,9 +265,9 @@ class ShmMap extends SMC_Post
 					</div>
 				</div>
 				<div class='shm-12'>
-					<input type='hidden' value='". $latitude ."' name='latitude' />
-					<input type='hidden' value='". $longitude ."' name='longitude' />
-					<input type='hidden' value='". $zoom ."' name='zoom' />
+					<input type='hidden' value='". esc_attr( $latitude ) ."' name='latitude' />
+					<input type='hidden' value='". esc_attr( $longitude ) ."' name='longitude' />
+					<input type='hidden' value='". esc_attr( $zoom ) ."' name='zoom' />
 				</div>
 			</div>
 			<div class='spacer-15'></div>
@@ -275,13 +275,13 @@ class ShmMap extends SMC_Post
 				<h3 class='shm-12'>". __("1.2. Set size for map's div (per pixels)", SHMAPPER). "</h3>
 				<div class='shm-12'>
 					<div class='shm-admin-block'>
-						<label>" . __("Height") . "</label>
-						<input type='number' value='". $height ."' name='height' />
-						<p class='description'>" . __("Empty for ", SHMAPPER) . "400px</p>
+						<label>" . __("Height", "shmapper-by-teplitsa") . "</label>
+						<input type='number' value='". esc_attr( $height ) ."' name='height' />
+						<p class='description'>" . __("Empty for ", "shmapper-by-teplitsa") . "400px</p>
 					</div>
 					<div class='shm-admin-block'>
 						<label>" . __("Width") . "</label>
-						<input type='number' value='". $width ."' name='width' />
+						<input type='number' value='". esc_attr( $width ) ."' name='width' />
 						<p class='description'>" . __("Empty for ", SHMAPPER) . "100%</p>
 					</div>
 					<div class='shm-admin-block'>

@@ -1,12 +1,12 @@
-=== shMapper by Teplitsa ===
+=== ShMapper by Teplitsa ===
 Contributors: Genagl, Ahaenor, denis.cherniatev, burdianov, teplosup
 Author URI: https://te-st.org/
 Plugin URI: http://genagl.ru/?p=652
 Tags: map, OpenStreetMap, OSM, yandex.map, crowdsourcing, карта, Яндекс.карты, картирование, mapping, crowdsourced mapping, user mapping
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.4.18
+Stable tag: 1.4.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,9 @@ No questions yet.
 2.  Map and feedback form example
 
 == Changelog ==
+
+= 1.4.19 =
+* Improve support WordPress 6.7
 
 = 1.4.18 =
 * Fix select all posts issue

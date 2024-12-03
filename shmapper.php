@@ -3,7 +3,7 @@
  * Plugin Name: ShMapper by Teplitsa
  * Plugin URI: http://genagl.ru/?p=652
  * Description: Location and logistics services for NKO
- * Version: 1.4.18
+ * Version: 1.4.19
  * Requires at least: 5.0
  * Requires PHP: 7.4
  * Author: Teplitsa. Technologies for Social Good
@@ -60,7 +60,7 @@ define( 'SHMAPPER_TITLE_TYPE_ID', 9 );
 define( 'SHM_CSV_STROKE_SEPARATOR', ';' );
 define( 'SHM_CSV_ROW_SEPARATOR', '
 ');
-define( 'SHMAPPER_VERSION', '1.4.18' );
+define( 'SHMAPPER_VERSION', '1.4.19' );
 
 /** Load textdomain */
 function shm_load_textdomain_mofile( $mofile, $domain ) {
