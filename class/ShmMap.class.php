@@ -151,7 +151,7 @@ class ShmMap extends SMC_Post
 						__("include all (map and request form)", SHMAPPER) .
 					"</div>
 					<div class='shm-12 shm-md-12'>
-						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . $post_id . "\"]' />
+						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . esc_attr( $post_id ) . "\"]' />
 					</div>
 				</div>
 				<div class='shm-row'>
@@ -159,7 +159,7 @@ class ShmMap extends SMC_Post
 						__("only map", SHMAPPER) .
 					"</div>
 					<div class='shm-12 shm-md-12'>
-						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . $post_id . "\" map=\"true\"]' />
+						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . esc_attr( $post_id ) . "\" map=\"true\"]' />
 					</div>
 				</div>
 				</div>
@@ -168,7 +168,7 @@ class ShmMap extends SMC_Post
 						__("only request form", SHMAPPER) .
 					"</div>
 					<div class='shm-12 shm-md-12'>
-						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . $post_id . "\" form=\"true\"]' />
+						<input type='text' disabled  class='sh-form' value='[shmMap id=\"" . esc_attr( $post_id ) . "\" form=\"true\"]' />
 					</div>
 				</div>
 				";
@@ -201,7 +201,7 @@ class ShmMap extends SMC_Post
 	{
 		$html = '
 		<p class="description">' . __( 'You can insert a card into a post or page by copying this shortcode.', 'shmapper-by-teplitsa' ) . '</p>
-		<input type="text" disabled class="sh-form" value=\'[shmMap id="' . $obj->id . '"]\'>
+		<input type="text" disabled class="sh-form" value=\'[shmMap id="' . esc_attr( $obj->id ) . '"]\'>
 		<br>
 		<p class="description">' . __( 'And also you can use a Gutenberg block ShMapper Map.', 'shmapper-by-teplitsa' ) . '</p>
 		<div class="shm-metabox-block-example">
@@ -280,7 +280,7 @@ class ShmMap extends SMC_Post
 						<p class='description'>" . __("Empty for ", "shmapper-by-teplitsa") . "400px</p>
 					</div>
 					<div class='shm-admin-block'>
-						<label>" . __("Width") . "</label>
+						<label>" . __("Width", "shmapper-by-teplitsa") . "</label>
 						<input type='number' value='". esc_attr( $width ) ."' name='width' />
 						<p class='description'>" . __("Empty for ", SHMAPPER) . "100%</p>
 					</div>
@@ -967,7 +967,7 @@ class ShmMap extends SMC_Post
 		global $post;
 		$t = '';
 		if ( $post ) {
-			$t = ($post->post_type == SHM_MAP && (is_single() || is_archive() )) ? '[shmMap id="' . $post->ID . '" map form ]'  : "";
+			$t = ($post->post_type == SHM_MAP && (is_single() || is_archive() )) ? '[shmMap id="' . esc_attr( $post->ID ) . '" map form ]'  : "";
 		}
 		return $t . $content;
 	}

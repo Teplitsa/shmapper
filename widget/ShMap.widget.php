@@ -37,7 +37,7 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 		$map = ShmMap::get_instance($instance['map_id']);			
 		$output .= $map->draw([ "height" => $instance['height'], "id" => $map->id ]);
 		$output .= $after_widget."\n";
-		echo $output;
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 	
 	/*  Widget update
@@ -72,6 +72,7 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 				<p>
 					<label for="<?php echo esc_attr( $instance['map_id'] ); ?>"><?php esc_html_e("Map", SHMAPPER); ?></label>
 					<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo ShmMap::wp_dropdown([
 							"class" 	=> "shm-form",
 							"name"		=> $this->get_field_name('map_id'),

@@ -117,7 +117,7 @@ class ShMapperRequest extends SMC_Post
 				break;
 			case "thumb":
 				$img = get_the_post_thumbnail_url( $post_id, [75, 75] );
-				echo "<div class='shm_type_icon2' style='background-image:url($img);' title='$img'></div>" ;
+				echo '<div class="shm_type_icon2" style="background-image:url(' . esc_attr( $img ) . ');" title="' . esc_attr( $img ) . '"></div>' ;
 				break;
 			default:
 				parent::fill_views_column($column_name, $post_id);

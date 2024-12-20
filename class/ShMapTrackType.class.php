@@ -105,7 +105,7 @@ class ShMapTrackType
 		?>
 		<div class="form-field term-description-wrap">
 			<label for="color">
-				<?php echo __("Color", SHMAPPER);  ?>
+				<?php echo esc_html__("Color", SHMAPPER);  ?>
 			</label> 
 			<div class="bfh-colorpicker" data-name="color" data-color="<?php echo esc_attr( $color ); ?>">
 			</div>

@@ -529,6 +529,8 @@ class ShMapper {
 			';
 		}
 
+		$shm_yandex_maps_api_key = empty(static::$options['shm_yandex_maps_api_key']) ? '' : static::$options['shm_yandex_maps_api_key'];
+
 		echo "<div class='shm-container shm-padding-20'>
 			<div class='shm-row'>
 				<div class='shm-12'>
@@ -566,11 +568,11 @@ class ShMapper {
 							<div class='shm-row' id='shm_settings_yandex_map_api_key_cont'>
 								<div class='shm-9'>
 									<p>
-										<div><small class='shm-color-grey'>" . esc_html__("Yandex.Maps API Key", SHMAPPER)."</small></div>
-										<input class='sh-form' name='shm_yandex_maps_api_key' value='".(empty(static::$options['shm_yandex_maps_api_key']) ? '' : static::$options['shm_yandex_maps_api_key']). "' />
-										<span class='shm-color-alert'><small>".esc_html__("ATTENTION: you must specify a key for working with the Yandex.Maps API.", SHMAPPER)."<br />".__("Learn more here:", SHMAPPER)." <a href='https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/' target='_blank'>https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/</a></small></span>
+										<div><small class='shm-color-grey'>" . esc_html__("Yandex.Maps API Key", "shmapper-by-teplitsa") . "</small></div>
+										<input class='sh-form' name='shm_yandex_maps_api_key' value='". esc_attr( $shm_yandex_maps_api_key ) . "' />
+										<span class='shm-color-alert'><small>" . esc_html__("ATTENTION: you must specify a key for working with the Yandex.Maps API.", "shmapper-by-teplitsa")."<br />" . esc_html__("Learn more here:", "shmapper-by-teplitsa")." <a href='https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/' target='_blank'>https://tech.yandex.ru/maps/jsapi/doc/2.1/dg/concepts/load-docpage/</a></small></span>
 									<p>
-								</div>	
+								</div>
 							</div>
 				
 						</div>
@@ -579,7 +581,7 @@ class ShMapper {
 				<li>
 					<div class='shm-row' id='shm_map_is_crowdsourced_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3'>".
-							esc_html__("Interactive", SHMAPPER) .
+							esc_html__("Interactive", "shmapper-by-teplitsa") .
 						"</div>
 						<div class='shm-9'>
 							<p>
@@ -587,11 +589,11 @@ class ShMapper {
 									checked(1, (int)static::$options['shm_map_is_crowdsourced'], 0) . 
 								"/>
 								<label for='shm_map_is_crowdsourced'>".
-									esc_html__("Enable global mode for non-interactive maps", SHMAPPER) .
+									esc_html__("Enable global mode for non-interactive maps", "shmapper-by-teplitsa") .
 								"</label> 
 								<br>
 								<span class='shm-color-grey'><small>".
-									__("users will not be able to add posts to any map. If the checkbox is enabled, the interactivity block does not even appear on the maps.", SHMAPPER). 
+									esc_html__("users will not be able to add posts to any map. If the checkbox is enabled, the interactivity block does not even appear on the maps.", "shmapper-by-teplitsa"). 
 								"</small></span>
 							</p>
 							<p>
@@ -599,15 +601,15 @@ class ShMapper {
 									checked(1, (int)static::$options['shm_map_marker_premoderation'], 0) . 
 								"/>
 								<label for='shm_map_marker_premoderation'>".
-									__("Pre-modertion from Map owner.", SHMAPPER) .
+									esc_html__("Pre-modertion from Map owner.", "shmapper-by-teplitsa") .
 								"</label> 
 								<br>
 								<span class='shm-color-grey'><small>".
-									esc_html__("all messages will be added in the Draft status", SHMAPPER). 
+									esc_html__("all messages will be added in the Draft status", "shmapper-by-teplitsa"). 
 								"</small></span>
 								<br>
 								<span class='shm-color-alert'><small>". 
-										esc_html__("ATTENTION: disable this option only at your own peril and risk, because there is a threat of spam attacks", SHMAPPER). 
+										esc_html__("ATTENTION: disable this option only at your own peril and risk, because there is a threat of spam attacks", "shmapper-by-teplitsa"). 
 								"</small></span>
 							</p>
 							<p>
@@ -615,71 +617,65 @@ class ShMapper {
 									checked(1, (int)static::$options['shm_reload'], 0) . 
 								"/>
 								<label for='shm_reload'>".
-									esc_html__("Reload page after User send request.", SHMAPPER) .
+									esc_html__("Reload page after User send request.", "shmapper-by-teplitsa") .
 								"</label> 
 							</p>
-						</div>	
-						<div class='shm-1'>
-							
-						</div>	
-					</div>				
+						</div>
+
+						<div class='shm-1'></div>
+
+					</div>
 				</li>
 				<li>
 					<div class='shm-row' id='shm_settings_captcha_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3'>".
-							esc_html__("Protection", SHMAPPER) .
+							esc_html__("Protection", "shmapper-by-teplitsa") .
 						"</div>
 						<div class='shm-9'>
 							<input type='checkbox' class='checkbox' value='1' id='shm_settings_captcha' " . 
 								checked(1, empty(static::$options['shm_settings_captcha']) ? 0 : (int)static::$options['shm_settings_captcha'], 0) . 
 							"/>
 							<label for='shm_settings_captcha'>".
-								esc_html__("Include captcha in form (plugin uses only reCAPTCHA v2 keys)", SHMAPPER) .
+								esc_html__("Include captcha in form (plugin uses only reCAPTCHA v2 keys)", "shmapper-by-teplitsa") .
 							"</label> 
 							<p>
 							<div><small class='shm-color-grey'>Google reCAPTCHA site key</small></div>
-							<input class='sh-form' name='shm_captcha_siteKey' value='".(empty(static::$options['shm_captcha_siteKey']) ? '' : static::$options['shm_captcha_siteKey']). "' />
+							<input class='sh-form' name='shm_captcha_siteKey' value='" . esc_attr(empty(static::$options['shm_captcha_siteKey']) ? '' : static::$options['shm_captcha_siteKey']) . "' />
 							<p>
 							<div><small class='shm-color-grey'>Google reCAPTCHA secret key</small></div>
-							<input class='sh-form' name='shm_captcha_secretKey' value='".(empty(static::$options['shm_captcha_secretKey']) ? '' : static::$options['shm_captcha_secretKey'])."' />
+							<input class='sh-form' name='shm_captcha_secretKey' value='" . esc_attr(empty(static::$options['shm_captcha_secretKey']) ? '' : static::$options['shm_captcha_secretKey']) . "' />
 							<small class='shm-color-grey'>".
-								sprintf(__("What is Google reCAPTCHA? How recived keys for your site? See %sthis instruction%s.", SHMAPPER), "<a href='https://webdesign.tutsplus.com/" . substr(get_bloginfo("language"), 0, 2) . "/tutorials/how-to-integrate-no-captcha-recaptcha-in-your-website--cms-23024'>", "</a>") .
+								sprintf(esc_html__("What is Google reCAPTCHA? How recived keys for your site? See %sthis instruction%s.", "shmapper-by-teplitsa"), "<a href='https://webdesign.tutsplus.com/" . esc_attr( substr(get_bloginfo("language"), 0, 2) ) . "/tutorials/how-to-integrate-no-captcha-recaptcha-in-your-website--cms-23024'>", "</a>") .
 							"</small>
-							<div class='" . (empty(static::$options['shm_captcha_siteKey']) || empty(static::$options['shm_captcha_secretKey']) ? "" : "_hidden") . "'>
+							<div class='" . esc_attr(empty(static::$options['shm_captcha_siteKey']) || empty(static::$options['shm_captcha_secretKey']) ? "" : "_hidden") . "'>
 								<small class='shm-color-danger' id='recaptcha_danger'>".
-									esc_html__("Your reCAPTCHA doesn't work yet. In order to make it work, please get the API keys at google.com/recaptcha", SHMAPPER).
+									esc_html__("Your reCAPTCHA doesn't work yet. In order to make it work, please get the API keys at google.com/recaptcha", "shmapper-by-teplitsa").
 								"</small>
 							</div>
-						</div>	
-						<div class='shm-1'>
-							
-						</div>	
+						</div>
+
+						<div class='shm-1'></div>
+
 					</div>
 				</li>	
 				<li>
 					<div class='shm-row' id='shm_vocabulary_cont'>
 						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3 '>".
-							esc_html__("Vocabulary", SHMAPPER) .
+							esc_html__("Vocabulary", "shmapper-by-teplitsa") .
 						"</div>
-						<div class='shm-9' id='shm_voc'>
-							$vocabulary
-						</div>
+						<div class='shm-9' id='shm_voc'>" . $vocabulary . "</div>
 						<div class='shm-1'>
 							
 						</div>
 					</div>
 				</li>
 
-
 				<li>
 					<div class='shm-row'>
-						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3 '>".
-							esc_html__( "Coordinates", SHMAPPER ) .
-						"</div>
+						<div class='shm-2 shm-color-grey sh-right sh-align-middle shm-title-3 '>". esc_html__( "Coordinates", SHMAPPER ) . "</div>
 						<div class='shm-9'>
 							<div id='map_default_coordinates' style='width:100%;height:300px;border:1px solid darkgrey;'>
-			
-					</div>
+						</div>
 						<p>
 							<span class='shm-color-grey'><small>" . esc_html__( "Set default coordinates", SHMAPPER ) . "</small></span>
 						</p>
@@ -705,11 +701,11 @@ class ShMapper {
 									p.draggable 	= 1; 
 									p.type 			= '-1';
 									p.term_id 		= '-1';
-									p.height 		= '" . $default_marker["height"] . "';
-									p.width 		= '" . $default_marker["width"] . "';
-									p.icon 			= \"" . $default_marker["icon"] . "\";
-									p.default_icon  = \"" . $default_marker["icon"] . "\";
-									p.color 		= '" . $default_marker["color"] . "';
+									p.height 		= '" . esc_attr( $default_marker["height"] ) . "';
+									p.width 		= '" . esc_attr( $default_marker["width"] ) . "';
+									p.icon 			= \"" . esc_attr( $default_marker["icon"] ) . "\";
+									p.default_icon  = \"" . esc_attr( $default_marker["icon"] ). "\";
+									p.color 		= '" . esc_attr( $default_marker["color"] ) . "';
 
 									points.push(p);
 
@@ -826,7 +822,7 @@ class ShMapper {
 			$i++;
 			$active = $i == $step+1 ? "active" : "";
 			$steps_line .= "
-			<div class='$active'><div>$i</div></div>";
+			<div class='" . esc_attr( $active ) . "'><div>" . esc_html( $i ) . "</div></div>";
 		}
 
 		$title  = $stepData['title'];

@@ -429,11 +429,11 @@
 								break;
 							case "boolean":
 								echo $meta 
-									? "<img src='" . SHM_URLPATH . "assets/img/check_checked.png'> <span class='smc-label-782px'>" . $obj[$column_name]['name'] . "</span>" 
-									: "<img src='" . SHM_URLPATH . "assets/img/check_unchecked.png'> <span class='smc-label-782px'>" . $obj[$column_name]['name'] . "</span>";
+									? "<img src='" . esc_attr( SHM_URLPATH ) . "assets/img/check_checked.png'> <span class='smc-label-782px'>" . esc_html( $obj[$column_name]['name'] ) . "</span>" 
+									: "<img src='" . esc_attr( SHM_URLPATH ) . "assets/img/check_unchecked.png'> <span class='smc-label-782px'>" . esc_html( $obj[$column_name]['name'] ) . "</span>";
 								break;
 							case "media":
-								echo "<img style='height:140px; width:auto;' src='".wp_get_attachment_image_url($meta, array(140, 140))."'/>";
+								echo "<img style='height:140px; width:auto;' src='" . esc_url( wp_get_attachment_image_url($meta, array(140, 140))) . "'/>";
 								break;
 							case "array":
 								echo implode(", ", $meta);
@@ -444,17 +444,16 @@
 									$p = get_post($meta);
 									$post_title = is_object($p) ? $p->post_title : '';
 									$color = $obj[$column_name]['color'];
-									echo "
-										<strong>$post_title</strong>
-										<br><div class='IDs'><span style='background-color:$color;'>ID</span>$meta</div>";
+									echo '<strong>' . esc_html( $post_title ) . '</strong>
+										<br><div class="IDs"><span style="background-color:' . esc_attr( $color ) . ';"">ID</span>' . esc_html( $meta ) . '</div>';
 								}
-								break;							
+								break;
 							case "taxonomy":
 								if($term)
 								{
 									$term = get_term_by("term_id", $meta, $elem);
-									echo wp_kses_post( $term ? "<h6>".$term->name ."</h6> <div class='IDs'><span>ID</span>".$meta. "</div>
-										<div style='background-color:#$color; width:15px;height:15px;'></div>" : $meta );
+									echo wp_kses_post( $term ? "<h6>". esc_html( $term->name ) ."</h6> <div class='IDs'><span>ID</span>" . esc_html( $meta ) . "</div>
+										<div style='background-color:#$color; width:15px;height:15px;'></div>" : esc_attr( $meta ) );
 								}
 								break;
 							case "id":
@@ -503,20 +502,20 @@
 											}
 
 											echo "
-											<strong>$post_title</strong>
+											<strong>" . esc_html( $post_title ) . "</strong>
 											<br>
-											<div style='background-color: $color' class='IDs'><span>ID</span>".$meta. "</div> ";
+											<div style='background-color: " . esc_attr( $color ) . " class='IDs'><span>ID</span>" . esc_html( $meta ). "</div> ";
 										}
 										break;
 									default:
-										echo apply_filters(
+										echo esc_html( apply_filters(
 											"smc_post_fill_views_column",
 											"-- booboo --",
 											$column_name,
 											$post_id, 
 											$obj, 
 											$meta
-										);
+										) );
 										
 								}	 
 						}
@@ -541,7 +540,7 @@
 		// bulk actions
 		static function register_my_bulk_actions( $bulk_actions )
 		{
-			$bulk_actions['double'] = __("Double", SHMAPPER);
+			$bulk_actions['double'] = esc_html__("Double", SHMAPPER);
 			return $bulk_actions;
 		}
 		
@@ -563,7 +562,7 @@
 			if( empty( $_GET['my_bulk_action_done'] ) )		return;
 			$data = $_GET['my_bulk_action_done'];
 			$msg = sprintf( 'Doubled: %s.', $data );
-			echo '<div id="message" class="updated"><p>'. $msg .'</p></div>';
+			echo '<div id="message" class="updated"><p>'. esc_html( $msg ) .'</p></div>';
 		}
 		static function my_bulk_edit_custom_box( $column_name, $post_type ) 
 		{ 
@@ -604,13 +603,13 @@
 								case "boolean":
 									echo "
 									<input type='radio' name='$column_name' value='-1' class='smc_post_changer' id='__$column_name'/> 
-									<label for='__$column_name' class='shm-inline'>" . __("&mdash; No Change &mdash;", "shmapper-by-teplitsa") . "</label>
+									<label for='__$column_name' class='shm-inline'>" . esc_html__("&mdash; No Change &mdash;", "shmapper-by-teplitsa") . "</label>
 									
 									<input type='radio' name='$column_name' value='0' class='smc_post_changer' id='no$column_name'/> 
-									<label for='no$column_name' class='shm-inline'>" . __("No", "shmapper-by-teplitsa") . "</label>
+									<label for='no$column_name' class='shm-inline'>" . esc_html__("No", "shmapper-by-teplitsa") . "</label>
 									
 									<input type='radio' name='$column_name' value='1' class='smc_post_changer' id='yes$column_name'/> 
-									<label for='yes$column_name' class='shm-inline'>" . __("Yes", "shmapper-by-teplitsa") . "</label>";
+									<label for='yes$column_name' class='shm-inline'>" . esc_html__("Yes", "shmapper-by-teplitsa") . "</label>";
 									break;
 								case "media":
 								

@@ -100,7 +100,7 @@ function shmMap($args) {
 	}
 
 	if ( $form_style ) {
-		$form_style_attr = ' style="' . $form_style . '"';
+		$form_style_attr = ' style="' . esc_attr( $form_style ) . '"';
 	}
 
 	// Is Block
@@ -144,11 +144,11 @@ function shmMap($args) {
 	$block_attr = 'class="' . implode(' ', $classes) . '"';
 
 	if ( $style ) {
-		$block_attr .= ' style="' .  $style . '"';
+		$block_attr .= ' style="' . esc_attr( $style ) . '"';
 	}
 
 	if ( $args['anchor'] ) {
-		$block_attr .= ' id="' .  $args['anchor'] . '"';
+		$block_attr .= ' id="' . esc_attr( $args['anchor'] ) . '"';
 	}
 
 	$html = '<div ' . $block_attr . '>' . $html . '</div>';

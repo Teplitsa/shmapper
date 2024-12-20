@@ -58,6 +58,11 @@ No questions yet.
 
 == Changelog ==
 
+= 1.5.0 =
+* Improve support WordPress 6.7.1
+* Improve Plugin security
+* Improve sanitization
+
 = 1.4.19 =
 * Improve support WordPress 6.7
 

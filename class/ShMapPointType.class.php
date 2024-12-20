@@ -10,7 +10,7 @@ class ShMapPointType
 	static function init()
 	{
 		add_action('init',				array(__CLASS__, 'register_all'), 11 );
-		add_action( 'parent_file',		array(__CLASS__, 'tax_menu_correction'), 1);	
+		add_action( 'parent_file',		array(__CLASS__, 'tax_menu_correction'), 1);
 		add_action( 'admin_menu', 		array(__CLASS__, 'tax_add_admin_menus'), 11);
 		add_filter("manage_edit-".SHM_POINT_TYPE."_columns", array( __CLASS__,'ctg_columns')); 
 		add_filter("manage_".SHM_POINT_TYPE."_custom_column",array( __CLASS__,'manage_ctg_columns'), 11.234, 3);
@@ -34,24 +34,24 @@ class ShMapPointType
 	{
 		//Map marker type
 		$labels = array(
-			'name'              => __("Map marker type", SHMAPPER),
-			'singular_name'     => __("Map marker type", SHMAPPER),
-			'search_items'      => __("Search Map marker type", SHMAPPER),
-			'all_items'         => __("All Map marker types", SHMAPPER),
-			'view_item '        => __("View Map marker type", SHMAPPER),
-			'parent_item'       => __("Parent Map marker type", SHMAPPER),
-			'parent_item_colon' => __("Parent Map marker type:", SHMAPPER),
-			'edit_item'         => __("Edit Map marker type", SHMAPPER),
-			'update_item'       => __("Update Map marker type", SHMAPPER),
-			'add_new_item'      => __("Add Map marker type", SHMAPPER),
-			'new_item_name'     => __("New Map marker type name", SHMAPPER),
-			'menu_name'         => __("Map marker type", SHMAPPER),
+			'name'              => esc_attr__("Map marker type", "shmapper-by-teplitsa"),
+			'singular_name'     => esc_attr__("Map marker type", "shmapper-by-teplitsa"),
+			'search_items'      => esc_attr__("Search Map marker type", "shmapper-by-teplitsa"),
+			'all_items'         => esc_attr__("All Map marker types", "shmapper-by-teplitsa"),
+			'view_item '        => esc_attr__("View Map marker type", "shmapper-by-teplitsa"),
+			'parent_item'       => esc_attr__("Parent Map marker type", "shmapper-by-teplitsa"),
+			'parent_item_colon' => esc_attr__("Parent Map marker type:", "shmapper-by-teplitsa"),
+			'edit_item'         => esc_attr__("Edit Map marker type", "shmapper-by-teplitsa"),
+			'update_item'       => esc_attr__("Update Map marker type", "shmapper-by-teplitsa"),
+			'add_new_item'      => esc_attr__("Add Map marker type", "shmapper-by-teplitsa"),
+			'new_item_name'     => esc_attr__("New Map marker type name", "shmapper-by-teplitsa"),
+			'menu_name'         => esc_attr__("Map marker type", "shmapper-by-teplitsa"),
 		);
 		register_taxonomy(SHM_POINT_TYPE, [ ], 
 		[
 			'label'                 => '',
 			'labels'                => $labels,
-			'description'           => __('Unique type of every Map markers', SHMAPPER),
+			'description'           => esc_attr__('Unique type of every Map markers', "shmapper-by-teplitsa"),
 			'public'                => true,
 			'hierarchical'          => false,
 			'update_count_callback' => '',
@@ -76,20 +76,20 @@ class ShMapPointType
 	{
 		add_submenu_page( 
 			'shm_page', 
-			__("Map marker types", SHMAPPER), 
-			__("Map marker types", SHMAPPER), 
+			esc_attr__("Map marker types", "shmapper-by-teplitsa"),
+			esc_attr__("Map marker types", "shmapper-by-teplitsa"),
 			'edit_others_posts', 
 			'edit-tags.php?taxonomy=' . SHM_POINT_TYPE
 		);
-    }
+	}
 	static function ctg_columns($theme_columns) 
 	{
 		$new_columns = array
 		(
 			'cb' 			=> ' ',
 			'id' 			=> 'id',
-			'name' 			=> __('Name', 'shmapper-by-teplitsa'),
-			'icon' 			=> __('Icon', 'shmapper-by-teplitsa')
+			'name' 			=> esc_attr__('Name', 'shmapper-by-teplitsa'),
+			'icon' 			=> esc_attr__('Icon', 'shmapper-by-teplitsa')
 		);
 		return $new_columns;
 	}
@@ -130,19 +130,19 @@ class ShMapPointType
 		</div>
 		<div class="form-field term-description-wrap">
 			<label for="width">
-				<?php echo __("Width", SHMAPPER);  ?>
-			</label> 
+				<?php echo esc_html__("Width", SHMAPPER);  ?>
+			</label>
 			<input type="number" name="width" value="<?php echo esc_attr( empty($width) ? '' : $width );?>" />
 		</div>
 		<div class="form-field term-description-wrap">
 			<label for="height">
-				<?php echo __("Height", SHMAPPER);  ?>
+				<?php echo esc_html__("Height", SHMAPPER);  ?>
 			</label> 
 			<input type="number" name="height" value="<?php echo esc_attr( empty($height) ? '' : $height ); ?>" />
 		</div>
 		<div class="form-field term-description-wrap">
 			<label for="icon">
-				<?php echo __("Icon", SHMAPPER);  ?>
+				<?php echo esc_html__("Icon", SHMAPPER);  ?>
 			</label> 
 			<div class='shm-flex'>
 			<?php
@@ -169,7 +169,7 @@ class ShMapPointType
 		<tr class="form-field">
 			<th scope="row" valign="top">
 				<label for="color">
-					<?php echo esc_html__("Color", SHMAPPER);  ?>
+					<?php echo esc_html__("Color", "shmapper-by-teplitsa");  ?>
 				</label> 
 			</th>
 			<td>
@@ -181,7 +181,7 @@ class ShMapPointType
 		<tr class="form-field">
 			<th scope="row" valign="top">
 				<label for="height">
-					<?php echo esc_html__( 'Height', SHMAPPER ); ?>
+					<?php echo esc_html__( 'Height', "shmapper-by-teplitsa" ); ?>
 				</label> 
 			</th>
 			<td>
@@ -191,7 +191,7 @@ class ShMapPointType
 		<tr class="form-field">
 			<th scope="row" valign="top">
 				<label for="width">
-					<?php echo esc_html__( 'Width', SHMAPPER ); ?>
+					<?php echo esc_html__( 'Width', "shmapper-by-teplitsa" ); ?>
 				</label> 
 			</th>
 			<td>
@@ -201,7 +201,7 @@ class ShMapPointType
 		<tr class="form-field">
 			<th scope="row" valign="top">
 				<label for="icon">
-					<?php echo esc_html__( 'Icon', SHMAPPER ); ?>
+					<?php echo esc_html__( 'Icon', "shmapper-by-teplitsa" ); ?>
 				</label> 
 			</th>
 			<td>
@@ -242,9 +242,9 @@ class ShMapPointType
 		}
 
 		return '
-		<div class="ganre_picto ' . $class . '" term="' . SHM_POINT_TYPE . '" term_id="' . $term_id . '">
-			<div class="shm_type_icon" style="background-image:url(' . $cur_bgnd . ');"></div>
-			<div class="ganre_label">' . $term_name . '</div>
+		<div class="ganre_picto ' . esc_attr( $class ) . '" term="' . esc_attr( SHM_POINT_TYPE ) . '" term_id="' . esc_attr( $term_id ) . '">
+			<div class="shm_type_icon" style="background-image:url(' . esc_attr( $cur_bgnd ) . ');"></div>
+			<div class="ganre_label">' . esc_attr( $term_name ) . '</div>
 		</div>';
 	}
 	static function get_all_ids()
@@ -267,7 +267,7 @@ class ShMapPointType
 		foreach($all as $term)
 		{
 			$selected = in_array($term->term_id, $params['selected']) ? "selected" : "";
-			$html .= "<option value='" . $term->term_id . "' $selected >" . $term->name . "</option>";
+			$html .= "<option value='" . esc_attr( $term->term_id ) . "' $selected >" . esc_html( $term->name ) . "</option>";
 		}
 		$html .="</select>";
 		return $html;
@@ -276,7 +276,7 @@ class ShMapPointType
 	{
 		$types = get_terms([
 			"taxonomy" 		=> SHM_POINT_TYPE,
-			"hide_empty"	=> false 			
+			"hide_empty"	=> false
 		]);
 		$ret = [];
 		foreach($types as $type)

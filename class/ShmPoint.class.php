@@ -186,7 +186,7 @@ class ShmPoint extends SMC_Post
 	static function owner_fields_box_func( $post )
 	{	
 		$lt = static::get_instance( $post );
-		echo static::owner_fields_edit($lt, "radio");			
+		echo static::owner_fields_edit($lt, "radio");
 	}
 	static function owner_fields_edit($obj = false, $type = 'checkbox')
 	{
@@ -536,7 +536,7 @@ class ShmPoint extends SMC_Post
 			 switch ( $column_name )
 			 {
 				case 'owner_map':
-					 echo "<span class='title'>".__("Usage in Maps: ", SHMAPPER)."</span>". static::bulk_owner_fields_edit( );
+					 echo "<span class='title'>" . esc_html__("Usage in Maps: ", SHMAPPER) . "</span>". static::bulk_owner_fields_edit( );
 					 break;
 				default:
 					break;

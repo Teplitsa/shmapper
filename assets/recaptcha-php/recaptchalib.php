@@ -52,8 +52,7 @@ class ReCaptcha
     function ReCaptcha($secret)
     {
         if ($secret == null || $secret == "") {
-            die("To use reCAPTCHA you must get an API key from <a href='"
-                . self::$_signupUrl . "'>" . self::$_signupUrl . "</a>");
+            die("To use reCAPTCHA you must get an API key from <a href='" . esc_url( self::$_signupUrl ) . "'>" . esc_html( self::$_signupUrl ) . "</a>");
         }
         $this->_secret=$secret;
     }

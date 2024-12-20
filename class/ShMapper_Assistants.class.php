@@ -38,16 +38,16 @@ class ShMapper_Assistants
 	static function ba_admin_posts_filter_restrict_manage_posts()
 	{
 		global $wpdb, $post, $wp_list_table, $map_dropdown;
-		$current 			= isset($_GET['ADMIN_FILTER_FIELD'])? $_GET['ADMIN_FILTER_FIELD']:'';
+		$current = isset($_GET['ADMIN_FILTER_FIELD'])? $_GET['ADMIN_FILTER_FIELD']:'';
 		if($post && $post->post_type == SHM_POINT)
 		{
 			$map_dropdown = $map_dropdown ? $map_dropdown : ShmMap::get_all();
 			echo ShmMap::wp_dropdown([
 				"posts"			=> $map_dropdown,
 				"name" 			=> "ADMIN_FILTER_FIELD",
-				"selected" 		=>  $current, 
+				"selected" 		=>  esc_attr( $current ),
 				"style"			=> "width:120px;",
-				"select_none" 	=> __("all maps", SHMAPPER)
+				"select_none" 	=> esc_html__("all maps", "shmapper-by-teplitsa")
 			]);
 			?>
 			<input name="pagenum" 			type="hidden" value="<?php echo esc_attr( $wp_list_table->get_pagenum() ); ?>" />
@@ -61,22 +61,22 @@ class ShMapper_Assistants
 	static function shm_after_request_form( $text )
 	{
 		if( empty(ShMapper::$options['shm_settings_captcha']) ) {
-		    return $text;
+			return $text;
 		}
 
-		//require_once( SHM_REAL_PATH .'assets/recaptcha-php-1.11/recaptchalib.php');			
+		//require_once( SHM_REAL_PATH .'assets/recaptcha-php-1.11/recaptchalib.php');
 		// Register API keys at https://www.google.com/recaptcha/admin
 		$siteKey = isset( ShMapper::$options['shm_captcha_siteKey'] ) ? ShMapper::$options['shm_captcha_siteKey'] : '';
 		$secret = isset( ShMapper::$options['shm_captcha_secretKey'] ) ? ShMapper::$options['shm_captcha_secretKey'] : '';
 		
 		// reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
 		$html = '<div class="shm-form-element" id="grec">
-			<div class="g-recaptcha" data-sitekey="'.$siteKey.'"></div>
+			<div class="g-recaptcha" data-sitekey="'. esc_attr( $siteKey ) . '"></div>
 			<script type="text/javascript"
 				src="https://www.google.com/recaptcha/api.js?hl=ru">
 			</script>
 		</div>';
-		return $text.$html;
+		return $text . $html;
 
 	}
 	static function get_recaptcha_form()
@@ -93,7 +93,7 @@ class ShMapper_Assistants
 		$html = "<div class='shm-row'>
 			<div class='shm-12'>
 				<div class='shm-title-5'>" .
-					__("Your requests to this Map ", SHMAPPER) .
+					esc_html__("Your requests to this Map ", "shmapper-by-teplitsa") .
 				"</div>
 			</div>
 			<div class='shm-12'>".
