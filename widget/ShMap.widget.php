@@ -76,8 +76,8 @@ class ShmLocationNavigatorWidget extends WP_Widget {
 						echo ShmMap::wp_dropdown([
 							"class" 	=> "shm-form",
 							"name"		=> $this->get_field_name('map_id'),
-							"selected"	=> esc_attr($instance["map_id"]),
-							"id"		=> $instance['map_id'],
+							"selected"	=> esc_attr( $instance["map_id"] ),
+							"id"		=> esc_attr( $instance['map_id'] ),
 							"posts"		=> ShmMap::get_all(),
 						]);
 					?>

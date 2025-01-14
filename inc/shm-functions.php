@@ -149,3 +149,11 @@ function shm_flush_rewrite_rules(){
 	ShMapTrackType::register_all();
 	flush_rewrite_rules();
 }
+
+/**
+ * Strip tags script and style
+ */
+function shm_strip_scripts_tags( $text ) {
+	$text = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $text );
+	return $text;
+}

@@ -320,7 +320,7 @@
 				$idd 	= empty($params['display_id']) ? '' : $hub->ID.'. ';
 				$html	.= "
 				<option value='" . $hub->ID . "' " . selected($hub->ID, $params['selected'], 0) . ">
-					$idd" . $hub->post_title .
+					$idd" . esc_html( $hub->post_title ) .
 				"</option>";
 			}
 			$html		.= "</select>";
@@ -585,7 +585,7 @@
 				<?php 
 				 switch ( $column_name ) {
 					 case 'owner_map':
-						 echo "<span class='title'>".__("Usage in Maps: ", SHMAPPER)."</span>";
+						 echo "<span class='title'>" . __("Usage in Maps: ", "shmapper-by-teplitsa") . "</span>";
 						 break;
 					default:
 						if(array_key_exists($column_name, $obj))

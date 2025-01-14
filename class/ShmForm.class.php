@@ -535,7 +535,7 @@ class ShmForm
 				}
 
 				if ( '8' !== $element['type'] ) {
-					$html1 	.= $element['title'] ? "<div class='shm-form-row-title'>" . $element['title'] . $element_req . "</div>" : "";
+					$html1 	.= $element['title'] ? "<div class='shm-form-row-title'>" . esc_html( $element['title'] ) . $element_req . "</div>" : "";
 				}
 
 				$type 		= static::get_type_by("id", $element['type']);
@@ -543,25 +543,25 @@ class ShmForm
 				switch($element['type'])
 				{
 					case SHMAPPER_PLAIN_TEXT_TYPE_ID:
-						$html1 .= "<input type='text' class='shm-form-field sh-form' placeholder='".$element['placeholder']."'  name='elem[]' $require $data_types />";
+						$html1 .= "<input type='text' class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]' $require $data_types />";
 						break;
 					case SHMAPPER_NAME_TYPE_ID:
-						$html1 .= "<input type='text' class='shm-form-field sh-form' placeholder='".$element['placeholder']."'  name='elem[]' $require $data_types />";
+						$html1 .= "<input type='text' class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]' $require $data_types />";
 						break;
 					case SHMAPPER_PLAIN_NUMBER_TYPE_ID:
-						$html1 .= "<input type='number' class='shm-form-field sh-form' placeholder='".$element['placeholder']."'  name='elem[]' $require $data_types />";
+						$html1 .= "<input type='number' class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]' $require $data_types />";
 						break;
 					case SHMAPPER_EMAIL_TYPE_ID:
-						$html1 .= "<input type='email' class='shm-form-field sh-form' placeholder='".$element['placeholder']."'  name='elem[]' $require $data_types />";
+						$html1 .= "<input type='email' class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]' $require $data_types />";
 						break;
 					case SHMAPPER_PHONE_TYPE_ID:
-						$html1 .= "<input type='phone' class='sh-form' placeholder='".$element['placeholder']."'  name='elem[]'    $require $data_types />";
+						$html1 .= "<input type='phone' class='sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]'    $require $data_types />";
 						break;
 					case SHMAPPER_TEXTAREA_TYPE_ID:
-						$html1 .= "<textarea class='shm-form-field sh-form' placeholder='".$element['placeholder']."' name='elem[]' $require  rows='5' $data_types></textarea>";
+						$html1 .= "<textarea class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "' name='elem[]' $require  rows='5' $data_types></textarea>";
 						break;
 					case SHMAPPER_IMAGE_TYPE_ID:
-						$file_map = ($element['placeholder'] ? $element['placeholder'] : __("Сhoose files", SHMAPPER));
+						$file_map = ($element['placeholder'] ? esc_attr( $element['placeholder'] ) : __("Сhoose files", SHMAPPER));
 						$html1 .= "
 						<div class='shm-form-file'>
 							<label class='shm-form-file-label shm_nowrap'>$file_map</label>
@@ -575,13 +575,13 @@ class ShmForm
 					default:
 						$html1 .= apply_filters(
 							"shmapper_front_form_element", 
-							"<input type='text' class='shm-form-field sh-form' placeholder='".$element['placeholder']."'  name='elem[]' $require />", 
+							"<input type='text' class='shm-form-field sh-form' placeholder='" . esc_attr( $element['placeholder'] ) . "'  name='elem[]' $require />", 
 							$element 
 						);
 						break;
 				}
 
-				$html1 .= $element['description'] ? "<div class='shm-description'>" . $element['description'] ."</div>" : "";
+				$html1 .= $element['description'] ? "<div class='shm-description'>" . esc_html( $element['description'] ) ."</div>" : "";
 
 				$html1 .= "</div>";
 			} else {
@@ -623,11 +623,11 @@ class ShmForm
 				if ( ! isset( $terms ) ) {
 					$terms = array();
 				}
-				$element_title = $element['title'] ? "<div class='shm-form-row-title'>" . $element['title'] . "</div>" : "";
+				$element_title = $element['title'] ? "<div class='shm-form-row-title'>" . esc_html( $element['title'] ) . "</div>" : "";
 				$def_mark .= "<input type=hidden name='shm_point_type' class='sh-form shm-bg-transparent small' />
 					<input type=hidden name='shm_point_lat' class='sh-form shm-bg-transparent small' />
 					<input type=hidden name='shm_point_lon' class='sh-form shm-bg-transparent small' />
-					" . $element_title . "
+					" . esc_html( $element_title ) . "
 					<input type=text name='shm_point_loc' class='shm-form-field sh-form".(count($terms) > 1 ? "hidden" : "")."' />
 				</div>";
 		}
@@ -643,7 +643,7 @@ class ShmForm
 			$html1 .= $is_name_iclude ? "
 			<div class='shm-form-row shm-form-element'>
 				<div class='shm-form-row-title'>" . __("Your name",SHMAPPER) . $element_req . "</div>
-				<input type='text' class='shm-form-field sh-form' placeholder='".$personal_name."'  name='shm_form_name' $require/>
+				<input type='text' class='shm-form-field sh-form' placeholder='" . esc_attr( $personal_name ) . "'  name='shm_form_name' $require/>
 			</div>" 		: "";
 			// $html1 .= $is_name_required ? "<div class='shm-description'>
 			// 	<small class='req_descr'>".__("This required field", SHMAPPER)."</small>
@@ -675,7 +675,7 @@ class ShmForm
 			$html1 		.= $is_phone_iclude ? "
 			<div class='shm-form-row shm-form-element'>
 				<div class='shm-form-row-title'>" . __("Your phone",SHMAPPER) . $element_req . "</div>
-				<input type='text' class='shm-form-field sh-form' placeholder='".$personal_phone."'  name='shm_form_phone' $require />
+				<input type='text' class='shm-form-field sh-form' placeholder='" . esc_attr( $personal_phone ) . "'  name='shm_form_phone' $require />
 			</div>" 	: "";			
 			// $html1 .= $is_phone_required ? "<div class='shm-description'>
 			// 	<small class='req_descr'>".__("This required field", SHMAPPER)."</small>
@@ -821,7 +821,7 @@ class ShmForm
 				$element_req = '<span class="shm-form-required-simbol" title="' . __("This required field", SHMAPPER) . '">*</span>';
 			}
 
-			$element_title = isset( $element['title'] ) ? "<div class='shm-form-row-title ".(count($terms) > 1 ? "_hidden" : "")."' data-rel='shm_point_loc'>" . $element['title'] . $element_req . "</div>" : "";
+			$element_title = isset( $element['title'] ) ? "<div class='shm-form-row-title ".(count($terms) > 1 ? "_hidden" : "")."' data-rel='shm_point_loc'>" . esc_html( $element['title'] ) . $element_req . "</div>" : "";
 
 			return "<div class='" . $container_class . "' $require >$icons</div>
 			<input type=hidden name='shm_point_type' class='sh-form shm-bg-transparent small' />

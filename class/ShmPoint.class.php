@@ -209,7 +209,7 @@ class ShmPoint extends SMC_Post
 				<li class='popular-categorys'>
 					<label class='selectit'>
 						<input value='$map->ID' type='$type' name='owner_id[]' $selected>
-						" . ( $map->post_title ? $map->post_title : '(untitled map)')."
+						" . esc_html( ( $map->post_title ? $map->post_title : '(untitled map)') ) ."
 					</label>
 				</li>
 			";
@@ -231,7 +231,7 @@ class ShmPoint extends SMC_Post
 			$html .= "<li class='popular-category'>
 					<label class='selectit'>
 						<input value='$map->ID' type='$type' name='owner_id[]' $selected>
-						" . ( $map->post_title ? $map->post_title : esc_html__( '(untitled map)', 'shmapper-by-teplitsa' ) ) . "
+						" . ( $map->post_title ? esc_html( $map->post_title ) : esc_html__( '(untitled map)', 'shmapper-by-teplitsa' ) ) . "
 					</label>
 				</li>
 			";
@@ -389,7 +389,7 @@ class ShmPoint extends SMC_Post
 		foreach($owners as $r)
 		{
 			$link = is_admin() ? "/wp-admin/post.php?post=".$r->ID."&action=edit" : get_permalink($r->ID);
-			$d[] = "<a href='$link'>".$r->post_title."</a>";
+			$d[] = "<a href='$link'>" . esc_html( $r->post_title ) . "</a>";
 		}
 
 		return $before . implode($separator, $d) . $after;
@@ -519,7 +519,7 @@ class ShmPoint extends SMC_Post
 
 				$point = static::get_instance($post);
 
-				return $point->draw().$point->get_owner_list( __("Usage in Maps: ", SHMAPPER), ", ", " "  )."<div class='spacer-30'></div>".$content;
+				return $point->draw().$point->get_owner_list( __("Usage in Maps: ", SHMAPPER), ", ", " "  )."<div class='spacer-30'></div>". shm_strip_scripts_tags( $content );
 
 			}
 		}

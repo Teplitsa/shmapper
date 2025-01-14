@@ -51,7 +51,7 @@ class ShMaperTrack extends SMC_Post
 
 				$track = static::get_instance($post_id);
 				remove_filter( 'the_content', [__CLASS__, "the_content"], SHM_TRACKS_CONTENT_PRIORITY);
-				return $track->draw() . $track->get_owner_list( __("Usage in Maps: ", SHMAPPER), ", ", " "  ) . "<div class='spacer-30'></div>".$content;
+				return $track->draw() . $track->get_owner_list( __("Usage in Maps: ", SHMAPPER), ", ", " "  ) . "<div class='spacer-30'></div>" . shm_strip_scripts_tags( $content );
 
 			}
 			return $content;

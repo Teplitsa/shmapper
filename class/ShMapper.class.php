@@ -112,7 +112,7 @@ class ShMapper {
 			'parent' => 'shmapper_panel',
 			'id' => 'shmapper_edit_maps', 
 			'title' => __('edit Maps in page', SHMAPPER),
-			'href' => "#" 	
+			'href' => "#"
 		));
 		if(is_array($shm_all_maps))
 		{
@@ -122,7 +122,7 @@ class ShMapper {
 				$wp_admin_bar->add_menu( [
 					'parent' => 'shmapper_edit_maps',
 					'id' => 'shmapper_edit_map'.$mid, 
-					'title' => $map->get("post_title"), 
+					'title' => esc_html( $map->get("post_title") ),
 					'href' => "/wp-admin/post.php?post=$mid&action=edit" 
 				] );
 			}
@@ -733,8 +733,8 @@ class ShMapper {
 								} else if (map_type == 2) {
 									// if is OpenStreetMap
 									var points      = [],
-									iconHeight      = '" . $default_marker["height"] . "',
-									iconWidth       = '" . $default_marker["width"] . "',
+									iconHeight      = '" . esc_attr( $default_marker["height"] ) . "',
+									iconWidth       = '" . esc_attr( $default_marker["width"] ) . "',
 									defaultIconUrl  = \"" . $default_marker["icon"] . "\";
 
 									var mData = {
